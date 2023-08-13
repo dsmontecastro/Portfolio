@@ -27,12 +27,12 @@
   min-height: 100vh;
   text-align: center;
 
-  /* Scroll */
+  /* Disable H-Scroll */
   overflow-x: hidden;
-  scrollbar-width: none;
   /* Firefox */
-  -ms-overflow-style: none;
+  scrollbar-width: none;
   /* IE/Edge */
+  -ms-overflow-style: none;
 }
 
 /* Chrome, Safari and Opera */

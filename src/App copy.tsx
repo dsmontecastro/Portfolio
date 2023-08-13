@@ -1,5 +1,4 @@
 import { useRef } from 'react';
-import ScrollBars from 'react-custom-scrollbars-2'
 
 import Nav from './nav/Nav';
 import Pages from './pages/_Pages';
@@ -13,9 +12,15 @@ export default function App() {
   return (
     <>
       <Nav width={navWidth} pages={pageRefs} />
-      <ScrollBars>
-        <Pages width={pageWidth} refs={pageRefs} />
-      </ScrollBars>
+      <Pages width={pageWidth} refs={pageRefs} />
     </>
   )
+}
+
+export default class App extends Component {
+  constructor(props: ) {
+
+  }
+
+
 }
