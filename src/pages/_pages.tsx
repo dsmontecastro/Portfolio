@@ -1,35 +1,28 @@
-import { ReactElement } from 'react'
+import { pageBodies } from "./_";
 
-const navNames: Array<string> = [
-    "test",
-    "test",
-    "test",
-    "test",
-    "test",
-    "test",
-    "test",
-    "test",
-    "test",
-    "test",
-]
-
-const appPages: Array<ReactElement> = [
-    test(),
-    test(),
-    test(),
-    test(),
-    test(),
-    test(),
-    test(),
-    test(),
-    test(),
-    test(),
-]
-
-function test(): ReactElement {
-    return (
-        <span> test </span>
-    )
+interface PageProps {
+    width: string
 }
 
-export { navNames, appPages };
+export default function Pages({ width }: PageProps) {
+
+    const pageElements = pageBodies.map((s, i) =>
+        <section key={i} id={`page-${i}`} className="py-10 mb-10 bg-gray-500 rounded-lg">
+            <p className="text-9xl mx-20 text-white"> ITEM#{i + 1}: {s} </p>
+        </section>
+    );
+
+    return (
+        <div id="page-container" className={`${width} h-max float-right bg-blue-500`}>
+
+            <header className="mb-12 text-white text-9xl underline">
+                HEADER
+            </header>
+
+            <div id="pages" className="">
+                {pageElements}
+            </div>
+
+        </div>
+    )
+}
