@@ -26,7 +26,9 @@ const pageBodies = [
 
 function test() {
     return (
-        <span> test </span>
+        <div className="w-full h-full">
+            <span> test </span>
+        </div>
     )
 }
 

@@ -1,86 +1,82 @@
-// import { MutableRefObject, useEffect, useState } from "react";
-import { MutableRefObject, useEffect } from "react";
+import { PageRefs } from '../_types';
 
-import { pageNames } from "../pages/_.tsx"
+import { pageNames } from '../pages/_';
+
 
 interface NavProps {
     width: string
-    pages: MutableRefObject<(HTMLDivElement | null)[]>
-    // body: MutableRefObject<(HTMLDivElement | null)>
+    index: number
+    pageRefs: PageRefs
 }
 
-// export default function Nav({ width, pages, body }: NavProps) {
-export default function Nav({ width, pages }: NavProps) {
+export default function Nav({ width, index, pageRefs }: NavProps) {
 
-    /* ----------------------------------------------- Nav Items ---------------------------------------------- */
+    const scrollOptions: ScrollIntoViewOptions = { behavior: 'smooth', block: 'center' };
 
-    const scrollOptions: ScrollIntoViewOptions = { behavior: "smooth", block: "center" }
+    const baseColor = 'white';
+    const bgColor = 'pink-600';
 
-    function navTo(target: (HTMLDivElement | null)) {
-        target?.scrollIntoView(scrollOptions);
-        console.log(window.scrollY);
-        // console.log(target?.id);
+    /* ----------------------------------------- List-Element Builder ----------------------------------------- */
+
+    function idToNav(id: number) {
+        return `nav-${id}`;
     }
 
-    const items = pageNames.map((s, i) => {
+    function navToPage(id: number) {
+        const page = pageRefs.current[id];
+        page?.scrollIntoView(scrollOptions);
+    }
+
+    function nameToNav(name: string, id: number) {
+
+        const text = 'text-' + ((id == index) ? baseColor : bgColor);
+        const bg = 'bg-' + bgColor;
+
         return (
-            <li key={i}>
-                <button onClick={() => navTo(pages.current[i])}>
-                    <div className="flex flex-row">
-                        <span className=" inline-block rounded-lg"> x </span>
-                        <p className="text-white"> {s} </p>
-                    </div>
-                </button>
-            </li>
-        )
-    });
-
-    /* --------------------------------------------- Progress Bar --------------------------------------------- */
-
-    // const [progress, setProgress] = useState(0);
-
-    function scrollEnd() {
-        const pos = window.scrollY;
-        console.log(pos);
-        // const top = body.scrollTop;
-        // const pos = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        // const percent = (top / pos) * 100;
-        // console.log(percent);
-        // setProgress(percent);
+            <div key={id} id={idToNav(id)}>
+                <div className='flex flex-row'>
+                    <button
+                        onClick={() => navToPage(id)}
+                        className={`z-10 w-5 h-5 ml-0.5 rounded-full text-sm text-center align-middle ${text} ${bg}`}
+                    > ◉ </button>
+                    <p className='ml-3 '> {name}:{id + 1} </p>
+                </div >
+            </div >
+        );
     }
-
-    useEffect(() => {
-        window.addEventListener("scroll", scrollEnd, true);
-        return () => window.removeEventListener("scroll", scrollEnd, true);
-    }, []);
 
     return (
-        <div id="nav-container" className={`${width} h-screen fixed float-left text-left bg-red-500 bg-opacity-50`}>
 
+        <div id='nav' className={`${width} h-full`}>
 
-            <div className={"w-1/10 h-3/4 mt-10 absolute top-1/2 left-1/4 transform -translate-x-1/2 -translate-y-1/2 bg-pink-600"}>
-                X
-            </div>
+            <div id='nav-body' className='h-screen ml-5'>
 
-            <div className="flex flex-row top-1/2">
+                <header id='nav-head' className='h-10 mt-5 text-4xl text-left'> Nav </header>
 
-                <div className="z-10 w-1/5 bg-green-300 bg-opacity-30" />
+                <div
+                    id='nav-body'
+                    className='mt-7 flex-1 flex flex-col'
+                >
 
-                <div id="nav-elements" className="z-10">
-
-                    <header className="z-10 my-10 text-6xl ">
-                        Nav
-                    </header>
-
-
-                    <ul className="z-10">
-                        {items}
+                    <ul id='nav-items' className='z-10 flex flex-col space-y-11'>
+                        {pageNames.map(nameToNav)}
                     </ul>
 
-                    divd</div>
+                    <div id='nav-progress' className='w-3 h-5/6 mt-0.5 ml-1.5 flex-grow absolute flex flex-col bg-pink-600'>
+
+                        {/* <div id='nav-bar' className={'w-3 mt-14 flex-grow absolute top-1/2 left-1/4 transform -translate-x-1/2 -translate-y-1/2 bg-pink-600'}>
+X
+</div> */}
+
+                    </div>
+
+                </div>
 
             </div>
 
         </div>
-    )
+
+    );
+
 }
+

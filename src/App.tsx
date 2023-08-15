@@ -1,21 +1,19 @@
-import { useRef } from 'react';
-import ScrollBars from 'react-custom-scrollbars-2'
+import { useRef, useState } from 'react';
 
 import Nav from './nav/Nav';
 import Pages from './pages/_Pages';
 
 export default function App() {
 
-  const navWidth = 'w-1/6';
-  const pageWidth = 'w-5/6';
-  const pageRefs = useRef<(HTMLDivElement | null)[]>([])
+  const [index, setIndex] = useState(0);
+  const pageRefs = useRef<(HTMLLIElement | null)[]>([]);
 
   return (
-    <>
-      <Nav width={navWidth} pages={pageRefs} />
-      <ScrollBars>
-        <Pages width={pageWidth} refs={pageRefs} />
-      </ScrollBars>
-    </>
-  )
+    <div id='app' className="w-screen h-full flex flex-row">
+      <Nav width='w-28' index={index} pageRefs={pageRefs} />
+      <Pages pageRefs={pageRefs} setIndex={setIndex} />
+    </div>
+  );
+
 }
+
