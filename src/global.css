@@ -33,6 +33,7 @@
 }
 
 * {
+  /* Handled by RCS2 */
   overflow: hidden;
   /* Firefox */
   scrollbar-width: none;
