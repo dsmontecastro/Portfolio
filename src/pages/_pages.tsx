@@ -19,14 +19,15 @@ export default function Pages({ pageRefs, setIndex }: NavProps) {
     }
 
     function pageToDiv(body: JSX.Element, id: number) {
-        const mb = `mb-${(id == count - 1) ? 0 : 5}`;
+        // const mb = `mb-${(id == count - 1) ? 0 : 5}`;
         return (
             <li
                 key={id}
                 id={idToPage(id)}
                 ref={(e) => pageRefs.current[id] = e}
-                className={`h-screen py-5 ${mb} bg-gray-500`}>
-                <p className='text-9xl mx-20 text-white'> ITEM#{id + 1}</p>
+                className='h-screen bg-gray-500'
+            >
+                {/* className={`h-screen ${mb} bg-gray-500`}> */}
                 {body}
             </li>
         );
@@ -34,7 +35,7 @@ export default function Pages({ pageRefs, setIndex }: NavProps) {
 
     function onUpdate(values: positionValues) {
         const pos = values.top;
-        let ind = Math.round(count * pos);
+        let ind = Math.floor(count * pos);
         if (ind >= count) { ind = count - 1; }
         setIndex(ind);
     }
@@ -42,26 +43,11 @@ export default function Pages({ pageRefs, setIndex }: NavProps) {
 
     return (
 
-        <div id='page-container' className='w-full h-full flex-1 bg-blue-500 overflow-none'>
+        <div id='pages' className='w-full h-full flex-1 bg-blue-500 overflow-none'>
             <Scrollbars onUpdate={(values) => onUpdate(values)}>
-                <div id='pageRefs-list'> {pageBodies.map(pageToDiv)} </div>
+                <div id='pages-list'> {pageBodies.map(pageToDiv)} </div>
             </Scrollbars>
         </div>
-
-        // <>
-        //     <Scrollbars
-        //         id='page-container'
-        //         className='w-full h-full flex-1 bg-blue-500 overflow-none'
-        //         onUpdate={(values) => onUpdate(values)}
-        //         autoHide={true}
-        //         hideTracksWhenNotNeeded={true}
-        //         renderTrackHorizontal={props => <div {...props} className='h-0 hidden track-horizontal' />}>
-
-        //         <div id='pageRefs-list'> {pageBodies.map(pageToDiv)} </div>
-
-        //     </Scrollbars>
-
-        // </>
 
     );
 

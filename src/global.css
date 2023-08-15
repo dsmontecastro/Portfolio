@@ -20,19 +20,16 @@
 
 #root {
 
-  /* Basic */
+  /* Sizes */
   width: 100vw;
   height: 100vh;
   min-width: 100vw;
   min-height: 100vh;
-  text-align: center;
 
-  /* Disable H-Scroll */
-  /* overflow: hidden; */
-  /* Firefox */
-  scrollbar-width: none;
-  /* IE/Edge */
-  -ms-overflow-style: none;
+  /* Layout */
+  display: flex;
+  text-align: center;
+  flex-direction: row;
 }
 
 * {
