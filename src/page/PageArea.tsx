@@ -11,31 +11,33 @@ interface Props {
     setIndex: SetNumber
 }
 
+// const pageDivide = 0.25; // Point of a Page where Index changes
+// const pageDivide = 1.025;    
+
 export default function PageArea({ pageRefs, setIndex }: Props) {
 
     function makePage(id: number) {
-        return <Page id={id} refs={pageRefs} />
+        return <Page key={`p-${id}`} id={id} refs={pageRefs} />
     }
 
     function onUpdate(values: positionValues) {
-        const pos = values.top;
-        let ind = Math.floor(pageCount * pos);
-        if (ind >= pageCount) { ind = pageCount - 1; }
-        setIndex(ind);
+        const per = values.top;             // % of ScrollHeight
+        const pos = (pageCount - 1) * per;  // Position based on PageCount
+        setIndex(Math.round(pos));          // Set Index as Integer
     }
 
     return (
 
-        <div id='page-area' className='w-full h-full flex-1 bg-blue-500 overflow-none'>
+        <Scrollbars id='page-area'
+            onUpdate={(values) => onUpdate(values)}
+            className='h-full flex-1 bg-blue-500 overflow-none'
+        >
 
-            <Scrollbars id='page-scroll' onUpdate={(values) => onUpdate(values)}>
+            <div id='page-pages'>
+                {Array(pageCount).fill(null).map((_, i) => makePage(i))}
+            </div>
 
-                <div id='page-pages'>
-                    {Array(pageCount).fill(null).map((_, i) => makePage(i))}
-                </div>
-
-            </Scrollbars>
-        </div>
+        </Scrollbars>
 
     );
 

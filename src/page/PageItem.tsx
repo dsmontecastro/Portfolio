@@ -9,16 +9,12 @@ interface Props {
 
 export default function Page({ id, refs }: Props) {
 
-    function idToPage(id: number) {
-        return `page-pages-${id}`;
-    }
+    const key = 'page-pages-' + id;
 
     return (
-        <li
-            key={id}
-            id={idToPage(id)}
+        <li key={key} id={key}
             ref={(e) => refs.current[id] = e}
-            className='h-screen bg-gray-500'
+            className='h-screen'
         > {pages[id].body} </li>
     );
 
