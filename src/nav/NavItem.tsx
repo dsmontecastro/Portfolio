@@ -1,7 +1,7 @@
 import { PageRefs } from '../_types';
-import { pages } from '../page/_';
+import { pages } from '../page/pages/_';
 
-import { bgColor, inactiveColor } from './colors';
+import { Colors, Layout } from './Styles';
 
 interface Props {
     id: number
@@ -15,9 +15,6 @@ const scrollOptions: ScrollIntoViewOptions = { behavior: 'smooth', block: 'cente
 
 export default function NavItem({ id, index, refs, isLast }: Props) {
 
-    const bg = 'bg-' + bgColor;
-    const inactive = 'text-' + inactiveColor;
-
     const itemKey = 'nav-item-' + id;
     const gapKey = 'nav-gap-' + id;
 
@@ -28,20 +25,22 @@ export default function NavItem({ id, index, refs, isLast }: Props) {
 
     return (
 
-        <li id={itemKey} key={itemKey} className={`${isLast ? 'flex-initial' : 'flex-1'} flex flex-col`}>
+        <li id={itemKey} key={itemKey} className={`w-full ${isLast ? 'flex-initial' : 'flex-1'} ${Layout.col}`}>
 
-            <div className='flex-initial flex flex-row'>
+            <div className={`flex-initial ${Layout.row}`}>
 
                 <button onClick={() => navToPage()}
-                    className={`w-6 h-6 align-middle ml-0.5 rounded-full ${bg} text-sm ${id == index ? '' : inactive}`}
+                    className={`w-6 h-6 ml-1 flex-initial rounded-full text-sm ${Layout.center}
+                    ${Colors.bg} ${id == index ? Colors.bttnActive : Colors.bttnInactive}`}
                 > ◉ </button>
 
-                <p className={`ml-3 -mt-0.5`}
-                > {pages[id].name}:{id + 1} </p>
+                <p className={`ml-3 -mt-0.5 flex-1 ${id == index ? Colors.textActive : Colors.textInactive}`}>
+                    {pages[id].name}
+                </p>
 
             </div >
 
-            {!isLast && <div id={gapKey} className='flex-grow' />}
+            {!isLast && <div id={gapKey} className='flex-1' />}
 
         </li >
     );

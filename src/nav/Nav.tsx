@@ -1,8 +1,8 @@
 import { PageRefs } from '../_types';
-import { pageCount } from '../page/_';
+import { pageCount } from '../page/pages/_';
 
+import { Colors, Layout } from './Styles';
 import NavItem from './NavItem';
-import { bgColor, textColor } from './colors';
 
 interface Props {
     index: number
@@ -12,9 +12,6 @@ interface Props {
 export default function Nav({ index, pageRefs }: Props) {
 
     const last = pageCount - 1;
-
-    const text = 'text-' + textColor;
-    const bg = 'bg-' + bgColor;
 
     function makeNavItem(id: number) {
 
@@ -31,20 +28,32 @@ export default function Nav({ index, pageRefs }: Props) {
 
     return (
 
-        <div id='nav' className={`w-min h-full mx-5 flex flex-col`}>
+        <div id='nav' className={`w-28 h-full mx-[1%] ${Layout.col}`}>
 
-            <header id='nav-head' className={`h-min my-3 text-4xl text-left ${text} flex-initial`}
-            > Nav </header>
+            <header id='nav-head' className='h-min my-3 spac flex-initial text-4xl text-left tracking-widest indent-3'
+            > NAV </header>
 
-            <div id='nav-body' className='my-3 flex-grow flex flex-row'>
+            <div id='nav-body' className={`my-3 flex-1 ${Layout.row}`}>
 
-                <div id='nav-items' className='z-10 h-full flex flex-col'>
+                <div id='nav-items' className={`z-10 w-[95%] h-full ${Layout.col}`}>
                     {Array(pageCount).fill(null).map((_, i) => makeNavItem(i))}
                 </div>
 
-                <div id='nav-progress' className={`w-3 my-2 -ml-3 -translate-x-16 ${bg}`} />
+                {/* <div id='nav-progress' className={`w-[10%] my-2 -ml-1 -translate-x-20 ${Colors.bg}`} /> */}
+                {/* <div id='nav-progress' className={`w-[5%] my-2 -translate-x-24 ${Colors.bg}`} /> */}
+                <div id='nav-progress' className={`w-3 my-2 -ml-4 -translate-x-20 ${Colors.bg}`} />
 
             </div>
+
+            {/* <div id='nav-body' className={`my-3 flex-1 ${Layout.row}`}>
+
+                <div id='nav-items' className={`z-10 h-full ${Layout.col}`}>
+                    {Array(pageCount).fill(null).map((_, i) => makeNavItem(i))}
+                </div>
+
+                <div id='nav-progress' className={`w-3 my-2 -ml-1 -translate-x-20 ${Colors.bg}`} />
+
+            </div> */}
 
         </div>
 

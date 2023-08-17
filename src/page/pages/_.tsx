@@ -1,5 +1,10 @@
+import Layout from '../Styles';
+
+import About from './About';
+
+// Note: Keep Names short (< 10 char)
 const pages = [
-    { name: 'test', body: test(0) },
+    { name: About.name, body: About() },
     { name: 'test', body: test(1) },
     { name: 'test', body: test(2) },
     { name: 'test', body: test(3) },
@@ -19,7 +24,7 @@ function test(id: number) {
     const i = id + 1;
 
     return (
-        <div id={name} className='w-full h-full border-4 border-red-500 flex justify-center items-center'>
+        <div id={name} className={`${Layout.fill} ${Layout.center}`}>
             {i}-------------------------------------------------------------{i}
         </div>
     )

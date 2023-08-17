@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 
 import Nav from './nav/Nav';
-import Pages from './page/PageArea';
+import Pages from './page/Page';
 
 export default function App() {
 

@@ -2,17 +2,14 @@
 import { Scrollbars, positionValues } from 'react-custom-scrollbars-2';
 
 import { PageRefs, SetNumber } from '../_types';
-import { pageCount } from './_';
-
+import { pageCount } from './pages/_';
 import Page from './PageItem';
+import Layout from './Styles';
 
 interface Props {
     pageRefs: PageRefs
     setIndex: SetNumber
 }
-
-// const pageDivide = 0.25; // Point of a Page where Index changes
-// const pageDivide = 1.025;    
 
 export default function PageArea({ pageRefs, setIndex }: Props) {
 
@@ -28,12 +25,12 @@ export default function PageArea({ pageRefs, setIndex }: Props) {
 
     return (
 
-        <Scrollbars id='page-area'
+        <Scrollbars id='scroller'
             onUpdate={(values) => onUpdate(values)}
-            className='h-full flex-1 bg-blue-500 overflow-none'
+            className={`flex-1 overflow-none ${Layout.fill}`}
         >
 
-            <div id='page-pages'>
+            <div id='pages' className={`${Layout.fill} ${Layout.col}`}>
                 {Array(pageCount).fill(null).map((_, i) => makePage(i))}
             </div>
 
