@@ -35,13 +35,13 @@ export default function Nav({ index, pageRefs }: Props) {
 
             <div id='nav-body'
                 className={`
-                w-full mx-2 my-5 pr-2 2xl:mx-0 2xl:my-12 2xl:pr-8
+                w-full mx-2 my-5 pr-4 2xl:mx-0 2xl:my-12 2xl:pr-8
                 flex-1 ${Layout.row}`}
             >
 
                 <div id='nav-line'
                     className={`
-                    w-4 my-2 translate-x-7
+                    w-4 my-2 translate-x-6
                     2xl:w-7 2xl:my-10 2xl:translate-x-11
                     flex-initial ${Colors.bg}`}
                 />

@@ -30,7 +30,7 @@ export default function NavItem({ id, index, refs, isLast }: Props) {
             <div className={`flex-initial ${Layout.row}`}>
 
                 <button onClick={() => navToPage()} className={`
-                    w-9 h-9 text-xl align-middle
+                    w-7 h-7 text-lg align-middle
                     2xl:w-14 2xl:h-14 2xl:text-2xl
                     ml-1 flex-initial rounded-full
                     focus:outline-none
