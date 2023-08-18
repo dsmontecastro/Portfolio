@@ -1,7 +1,9 @@
 export class Layout {
-    static row = 'flex flex-row';
-    static col = 'flex flex-col';
     static center = 'flex justify-center items-center';
+    static col = 'flex flex-col';
+    static row = 'flex flex-row';
+
+    static hide = '2xl:hidden portrait:hidden'
 }
 
 export class Colors {

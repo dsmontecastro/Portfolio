@@ -25,18 +25,21 @@ export default function NavItem({ id, index, refs, isLast }: Props) {
 
     return (
 
-        <li id={itemKey} key={itemKey} className={`w-full ${isLast ? 'flex-initial' : 'flex-1'} ${Layout.col}`}>
+        <li id={itemKey} key={itemKey} className={`w-min ${isLast ? 'flex-initial' : 'flex-1'} ${Layout.col}`}>
 
             <div className={`flex-initial ${Layout.row}`}>
 
-                <button onClick={() => navToPage()}
-                    className={`w-6 h-6 ml-1 flex-initial rounded-full text-sm ${Layout.center}
-                    ${Colors.bg} ${id == index ? Colors.bttnActive : Colors.bttnInactive}`}
-                > ◉ </button>
+                <button onClick={() => navToPage()} className={`
+                    w-9 h-9 text-xl align-middle
+                    2xl:w-14 2xl:h-14 2xl:text-2xl
+                    ml-1 flex-initial rounded-full ${Layout.center}
+                    ${Colors.bg} ${id == index ? Colors.bttnActive : Colors.bttnInactive}
+                `}> ◉ </button>
 
-                <p className={`ml-3 -mt-0.5 flex-1 ${id == index ? Colors.textActive : Colors.textInactive}`}>
-                    {pages[id].name}
-                </p>
+                <p className={
+                    `ml-3 -mt-0.5 flex-grow ${Layout.center} ${Layout.hide}
+                    ${id == index ? Colors.textActive : Colors.textInactive}
+                `}> {pages[id].name} </p>
 
             </div >
 

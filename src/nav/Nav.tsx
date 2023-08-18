@@ -28,16 +28,25 @@ export default function Nav({ index, pageRefs }: Props) {
 
     return (
 
-        <div id='nav' className={`w-28 h-full mr-[1%] ${Layout.col}`}>
+        <div id='nav' className={`w-min h-full ${Layout.col}`}>
 
-            <header id='nav-head' className={`h-min my-3 spac flex-initial text-4xl tracking-widest ${Layout.center}`}
+            <header id='nav-head' className={`h-min pt-5 pb-2 spac flex-initial text-4xl text-center tracking-widest ${Layout.center} ${Layout.hide}`}
             > NAV </header>
 
-            <div id='nav-body' className={`my-3 flex-1 ${Layout.row}`}>
+            <div id='nav-body'
+                className={`
+                w-full m-5 pr-3 2xl:mx-0 2xl:my-12 2xl:pr-8
+                flex-1 ${Layout.row}`}
+            >
 
-                <div id='nav-line' className={`w-3.5 my-2 translate-x-6 ${Colors.bg}`} />
+                <div id='nav-line'
+                    className={`
+                    w-4 my-2 translate-x-7
+                    2xl:w-7 2xl:my-10 2xl:translate-x-11
+                    flex-initial ${Colors.bg}`}
+                />
 
-                <div id='nav-items' className={`z-10 w-[95%] h-full ml-0.5 ${Layout.col}`}>
+                <div id='nav-items' className={`z-10 h-full -ml-0.5 flex-1 ${Layout.col}`}>
                     {Array(pageCount).fill(null).map((_, i) => makeNavItem(i))}
                 </div>
 
