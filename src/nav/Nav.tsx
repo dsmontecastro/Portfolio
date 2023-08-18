@@ -35,7 +35,7 @@ export default function Nav({ index, pageRefs }: Props) {
 
             <div id='nav-body'
                 className={`
-                w-full m-5 pr-3 2xl:mx-0 2xl:my-12 2xl:pr-8
+                w-full mx-2 my-5 pr-2 2xl:mx-0 2xl:my-12 2xl:pr-8
                 flex-1 ${Layout.row}`}
             >
 
