@@ -1,9 +1,8 @@
 export class Layout {
+    static hide = '2xl:hidden portrait:hidden'
     static center = 'flex justify-center items-center';
     static col = 'flex flex-col';
     static row = 'flex flex-row';
-
-    static hide = '2xl:hidden portrait:hidden'
 }
 
 export class Colors {
@@ -17,4 +16,6 @@ export class Colors {
     // Nav Buttons
     static bttnActive = 'text-white';
     static bttnInactive = 'text-pink-900';
+    static bttnFocus = 'focus:text-gray-400'
+    static bttnHover = 'hover:!text-gray-600'
 }

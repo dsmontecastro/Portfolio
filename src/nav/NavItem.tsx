@@ -32,8 +32,12 @@ export default function NavItem({ id, index, refs, isLast }: Props) {
                 <button onClick={() => navToPage()} className={`
                     w-9 h-9 text-xl align-middle
                     2xl:w-14 2xl:h-14 2xl:text-2xl
-                    ml-1 flex-initial rounded-full ${Layout.center}
-                    ${Colors.bg} ${id == index ? Colors.bttnActive : Colors.bttnInactive}
+                    ml-1 flex-initial rounded-full
+                    focus:outline-none
+                    ${Layout.center} ${Colors.bg} 
+                    ${id == index ? '' : Colors.bttnFocus}
+                    ${id == index ? '' : Colors.bttnHover}
+                    ${id == index ? Colors.bttnActive : Colors.bttnInactive}
                 `}> ◉ </button>
 
                 <p className={
