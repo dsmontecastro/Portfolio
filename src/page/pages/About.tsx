@@ -8,7 +8,9 @@ export default function About() {
 
         <div id={name} className={`w-[95%] h-[95%] bg-red-500 ${Layout.center}`}>
 
-            test
+            <header>
+                Aabb
+            </header>
 
         </div>
 

@@ -4,7 +4,7 @@ import About from './About';
 
 // Note: Keep Names short (< 10 char)
 const pages = [
-    { name: About.name, body: About() },
+    { name: About.name, body: <About /> },
     { name: 'test', body: test(1) },
     { name: 'test', body: test(2) },
     { name: 'test', body: test(3) },
