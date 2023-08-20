@@ -24,13 +24,13 @@ export default function About() {
 
     return (
 
-        <div id={name} className={`w-full h-min m-10 px-10 py-10 bg-slate-800 bg-opacity-50 ${Layout.col}`}>
+        <div id={name} className={`m-10 p-10 bg-slate-800 bg-opacity-50 ${Layout.col}`}>
 
             <div id={label('title')} className={`${Layout.col}`}>
 
                 <div id={label('greeting')} className={`mb-4 text-left text-8xl font-black flex-shrink ${Layout.row}`}>
                     <p> GOOD// </p>
-                    <p className={`${Colors.gradience}`}> {parseTime()}! </p>
+                    <p className={`${Colors.gradience1}`}> {parseTime()}! </p>
                 </div>
 
                 <div id={label('intro')} className={`mb-7 pb-5 text-left text-5xl font-black flex-shrink`}>
