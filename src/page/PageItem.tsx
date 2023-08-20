@@ -1,7 +1,6 @@
 import { PageRefs } from '../_types';
 import { pages } from './pages/_';
-
-import Layout from './Styles';
+import { Layout } from './Styles';
 
 interface Props {
     id: number
@@ -15,7 +14,7 @@ export default function Page({ id, refs }: Props) {
     return (
         <li key={key} id={key}
             ref={(e) => refs.current[id] = e}
-            className={`h-screen border-4 border-white ${Layout.center}`}
+            className={`border-4 border-white ${Layout.center}`}
         > {pages[id].body} </li>
     );
 

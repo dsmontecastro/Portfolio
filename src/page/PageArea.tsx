@@ -3,8 +3,8 @@ import { Scrollbars, positionValues } from 'react-custom-scrollbars-2';
 
 import { PageRefs, SetNumber } from '../_types';
 import { pageCount } from './pages/_';
+import { Layout } from './Styles';
 import Page from './PageItem';
-import Layout from './Styles';
 
 interface Props {
     pageRefs: PageRefs
