@@ -30,12 +30,16 @@ export default function Nav({ index, pageRefs }: Props) {
 
         <div id='nav' className={`w-min h-full ${Layout.col}`}>
 
-            <header id='nav-head' className={`h-[10%] pt-5 pb-2 spac flex-initial text-4xl text-center tracking-widest ${Layout.center} ${Layout.hide}`}
+            <header id='nav-head'
+                className={`h-[10%] pt-5 pb-2
+                flex-initial text-4xl text-center tracking-widest
+                ${Layout.center} ${Layout.hide}`}
             > NAV </header>
 
             <div id='nav-body'
                 className={`
-                w-full mx-2 my-5 pr-4 2xl:mx-0 2xl:my-12 2xl:pr-8
+                w-full mx-2 my-5 pr-4
+                2xl:mx-0 2xl:my-12 2xl:pr-8
                 flex-1 ${Layout.row}`}
             >
 

@@ -27,12 +27,12 @@ export default function PageArea({ pageRefs, setIndex }: Props) {
 
         <Scrollbars id='scroller'
             onUpdate={(values) => onUpdate(values)}
-            className={`flex-1 overflow-none ${Layout.fill}`}
+            className={`w-full h-screen flex-1 overflow-none`}
         >
 
-            <div id='pages' className={`${Layout.fill} ${Layout.col}`}>
+            <main id='pages' className={`${Layout.fill} ${Layout.col}`}>
                 {Array(pageCount).fill(null).map((_, i) => makePage(i))}
-            </div>
+            </main>
 
         </Scrollbars>
 
