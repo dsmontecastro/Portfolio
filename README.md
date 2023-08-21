@@ -1,4 +1,4 @@
 # TO-DO:
-- Create actual pages
-- Make everything responsive...
-- Add 3D VFX
+- Get Big BG
+- Create Projects//Previews
+- Make Pages responsive...
