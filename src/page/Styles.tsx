@@ -11,6 +11,9 @@ export class Layout {
 }
 
 export class Colors {
+    static bgMain = 'bg-slate-600 bg-opacity-50'
+
+
     static gradience = 'animate-gradience bg-gradient-to-r bg-clip-text text-transparent';
     static gradience1 = `${this.gradience} from-blue-500 via-purple-500 to-green-500`;
     static gradience2 = `${this.gradience} from-pink-500 via-yellow-500 to-green-500`;

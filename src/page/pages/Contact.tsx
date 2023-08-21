@@ -25,7 +25,8 @@ const ERRS_DEF: Errs = { name: false, email: false, feedback: false }
 const EMAIL = 'montecastrodaniel@gmail.com';
 
 
-const COUNTDOWN = 300;
+// const COUNTDOWN = 300;
+const COUNTDOWN = 3;
 const TIMER_KEY = 'timer';
 const SENT_KEY = 'sent';
 
@@ -127,22 +128,18 @@ export default function Contact() {
         e.preventDefault();
 
         if (validate()) {
-            console.log('SENT!');
+            console.log('VALIDATED!');
             disableSend();
-        } else {
-            console.log('FAILURE!');
-        }
 
-        if (validate()) {
-            EMAILjs.sendForm(
-                import.meta.env.VITE_SID,
-                import.meta.env.VITE_FORM,
-                e.currentTarget,
-                import.meta.env.VITE_KEY)
-                .then(
-                    (_) => disableSend(),
-                    (err) => console.log('FAILED...', err),
-                );
+            // EMAILjs.sendForm(
+            //     import.meta.env.VITE_SID,
+            //     import.meta.env.VITE_FORM,
+            //     e.currentTarget,
+            //     import.meta.env.VITE_KEY)
+            //     .then(
+            //         (_) => disableSend(),
+            //         (err) => console.log('FAILED...', err),
+            //     );
         }
     }
 
@@ -152,25 +149,31 @@ export default function Contact() {
     function makeInput(prop: Property, type: string) {
 
         const style = 'w-full mt-2 px-3 focus:outline-none';
-        const inactive = 'text-grey-500 bg-black';
-        const active = 'text-white bg-slate-900';
+        const active = 'text-white bg-slate-800';
+        const inactive = 'text-grey-500 bg-slate-900';
 
         const value = data[prop];
 
         return (
-            <label htmlFor={prop}>
+            <label htmlFor={prop} className='font-bold'>
 
                 {prop.toUpperCase()}
 
                 {(prop != 'feedback') ?
-                    <input id={prop} name={prop} type={type} value={value} disabled={sent}
-                        onChange={onChange} className={`h-10 flex-none ${style} ${sent ? inactive : active}`} />
+                    <input id={prop} name={prop} type={type} value={value} disabled={sent} onChange={onChange}
+                        className={`h-10 font-semibold flex-none ${style} ${sent ? inactive : active}`} />
                     :
-                    <textarea id={prop} name={prop} value={value} disabled={sent}
-                        onChange={onChange} className={`h-20 flex-1 overflow-y-scroll ${style} ${sent ? inactive : active}`} />
+                    <textarea id={prop} name={prop} value={value} disabled={sent} onChange={onChange}
+                        className={`h-24 py-2 flex-1 overflow-y-scroll ${style}
+                        ${errs[prop] ? 'border-2 border-red-500' : ''}
+                        ${sent ? inactive : active}`} />
                 }
 
-                {errs[prop] && <p> Please input your {prop} </p>}
+                <div className='h-5' >
+                    {errs[prop] && <p className='text-sm text-red-500 font-bold'>
+                        ⚠ Your {prop} must not be empty...
+                    </p>}
+                </div>
 
             </label>
         );
@@ -178,7 +181,7 @@ export default function Contact() {
 
     return (
 
-        <div id={name} className={`w-full h-min m-10 px-10 py-10 bg-slate-800 bg-opacity-50 overflow-x-clip ${Layout.rowC}`}>
+        <div id={name} className={`w-full h-min m-10 px-10 py-10 overflow-x-clip ${Colors.bgMain} ${Layout.rowC}`}>
 
             <div id={label('text')} className={`text-left font-black space-y-1 flex-shrink ${Layout.col}`}>
 
@@ -191,17 +194,20 @@ export default function Contact() {
                     </a>
                 </p>
 
+                <div className='h-32' />
+
             </div>
 
             <form id={label('form')} onSubmit={onSubmit} className={`ml-20 mr-5 flex-1 ${Layout.center}`}>
-                <div className={`w-full h-min p-16 text-xl text-left flex-1 space-y-5 ${Layout.col} bg-red-500`}>
+                <div className={`w-full h-min p-16 text-xl text-left flex-1 space-y-5 bg-slate-700 ${Layout.col}`}>
 
                     {makeInput('name', 'text')}
                     {makeInput('email', 'email')}
                     {makeInput('feedback', 'text')}
 
-                    <button disabled={sent} className={`w-full h-12 flex-shrink bg-slate-900`}
-                    > {sent ? getTime() : 'Submit'} </button>
+                    <button disabled={sent}
+                        className={`w-full h-12 font-bold flex-shrink ${sent ? 'bg-slate-900' : 'bg-slate-800'}
+                    `}> {sent ? getTime() : 'Submit'} </button>
 
                 </div>
             </form>
