@@ -1,47 +1,122 @@
 import React, { useEffect, useState } from "react";
-import emailjs from 'emailjs-com';
+import EMAILjs from 'EMAILjs-com';
 
 import { Colors, Layout } from "../Styles";
 
 type Submission = React.FormEvent<HTMLFormElement>;
 type Input = React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>;
 
+type Property = 'name' | 'email' | 'feedback';
+
 type Data = {
     name: string
     email: string
     feedback: string
 };
+const DATA_DEF: Data = { name: '', email: '', feedback: '' }
 
-const blank: Data = { name: '', email: '', feedback: '' };
+type Errs = {
+    name: boolean
+    email: boolean
+    feedback: boolean
+};
+const ERRS_DEF: Errs = { name: false, email: false, feedback: false }
+
+const EMAIL = 'montecastrodaniel@gmail.com';
+
+
+const COUNTDOWN = 300;
+const TIMER_KEY = 'timer';
+const SENT_KEY = 'sent';
 
 
 export default function Contact() {
 
     const name = 'contact';
-    const email = 'montecastrodaniel@gmail.com';
 
     function label(id: string) {
         return `${name}-${id}`;
     }
 
-    /* ----------------------------------- Disables spamming via Sent State ----------------------------------- */
+    /* ---------------------------------- Disables spamming via Sent & Timer ---------------------------------- */
 
-    const [sent, setSent] = useState<boolean>(false);
+    const [sent, setSent] = useState<boolean>(getStoredSent());
+
+    function enableSend() {
+        setSent(false);
+        localStorage.removeItem(SENT_KEY);
+        localStorage.removeItem(TIMER_KEY);
+    }
 
     function disableSend() {
         setSent(true);
-        localStorage.setItem('sent', 'true');
-        setTimeout(() => setSent(false), 300000);
+        setTimer(COUNTDOWN);
+        localStorage.setItem(SENT_KEY, 'true');
+    }
+
+    /* ---------------------------- Re-enables Sending of Feedback after Timer ends --------------------------- */
+
+    const [timer, setTimer] = useState<number>(getStoredTimer());
+
+    function getTime() {
+        let min = (timer / 60 | 0).toString();
+        let sec = (timer % 60).toString();
+
+        if (min.length == 1) min = '0' + min;
+        if (sec.length == 1) sec = '0' + sec;
+
+        return `${min}:${sec}`;
+    }
+
+    function countdown() {
+        if (timer > 0) setTimer(timer - 1);
+        else enableSend();
+        console.log(timer);
     }
 
     useEffect(() => {
-        const sentState = localStorage.getItem('sent');
-        if (sentState) setSent(sentState == 'true');
+        const interval = setInterval(countdown, 1000);
+        return () => clearInterval(interval);
+    }, [timer]);
+
+
+    /* -------------------------------- Save & Retrieve data from Local Storage ------------------------------- */
+
+    function getStoredSent() {
+        return localStorage.getItem(SENT_KEY) == 'true';
+    }
+
+    function getStoredTimer() {
+        const timerState = localStorage.getItem(TIMER_KEY);
+        if (timerState) return parseInt(timerState);
+        else return 0;
+    }
+
+    function saveKeys() {
+        if (!sent) localStorage.setItem(SENT_KEY, sent.toString());
+        if (timer > 0) localStorage.setItem(TIMER_KEY, timer.toString());
+    }
+
+    useEffect(() => {
+        window.addEventListener("beforeunload", saveKeys);
+        return () => window.removeEventListener("beforeunload", saveKeys);
     });
 
-    /* -------------------------------- Handles Sending of Feedback via EmailJS ------------------------------- */
+    /* ----------------------------- Validation & Sending of Feedback via EMAILJS ----------------------------- */
 
-    const [data, setData] = useState<Data>(blank);
+    const [data, setData] = useState<Data>(DATA_DEF);
+    const [errs, setErrs] = useState<Errs>(ERRS_DEF);
+
+    function validate() {
+        const _errs = {
+            ...errs,
+            name: data.name == '',
+            email: data.email == '',
+            feedback: data.feedback == '',
+        }
+        setErrs(_errs);
+        return Object.values(_errs).every(p => !p);
+    }
 
     function onChange(e: Input) {
         const elem = e.currentTarget;
@@ -51,38 +126,51 @@ export default function Contact() {
     function onSubmit(e: Submission) {
         e.preventDefault();
 
-        // emailjs.sendForm(
-        //     import.meta.env.VITE_SID,
-        //     import.meta.env.VITE_FORM,
-        //     e.currentTarget,
-        //     import.meta.env.VITE_KEY)
+        if (validate()) {
+            console.log('SENT!');
+            disableSend();
+        } else {
+            console.log('FAILURE!');
+        }
 
-        //     .then(
-        //         (_) => disableSend(),
-        //         (err) => console.log('FAILED...', err),
-        //     );
+        if (validate()) {
+            EMAILjs.sendForm(
+                import.meta.env.VITE_SID,
+                import.meta.env.VITE_FORM,
+                e.currentTarget,
+                import.meta.env.VITE_KEY)
+                .then(
+                    (_) => disableSend(),
+                    (err) => console.log('FAILED...', err),
+                );
+        }
     }
 
     /* ------------------------- Helper Function for making Input/TextArea FormFields ------------------------- */
 
-    function makeInput(name: string, type: string, value: string) {
+
+    function makeInput(prop: Property, type: string) {
 
         const style = 'w-full mt-2 px-3 focus:outline-none';
-        const inactive = 'text-grey-500';
-        const active = 'text-white';
+        const inactive = 'text-grey-500 bg-black';
+        const active = 'text-white bg-slate-900';
+
+        const value = data[prop];
 
         return (
-            <label htmlFor={name}> {name.toUpperCase()}
+            <label htmlFor={prop}>
 
-                {(name != 'feedback') ?
-                    <input id={name} name={name} type={type} value={value} disabled={sent} onChange={onChange}
-                        // className='w-full h-10 mt-2 px-3 flex-none focus:outline-none' />
-                        className={`h-10 flex-none ${style} ${sent ? inactive : active}`} />
+                {prop.toUpperCase()}
+
+                {(prop != 'feedback') ?
+                    <input id={prop} name={prop} type={type} value={value} disabled={sent}
+                        onChange={onChange} className={`h-10 flex-none ${style} ${sent ? inactive : active}`} />
                     :
-                    <textarea id={name} name={name} value={value} disabled={sent} onChange={onChange}
-                        // className='w-full h-20 mt-2 px-3 flex-1 overflow-y-scroll focus:outline-none' />
-                        className={`h-20 flex-1 overflow-y-scroll ${style} ${sent ? inactive : active}`} />
+                    <textarea id={prop} name={prop} value={value} disabled={sent}
+                        onChange={onChange} className={`h-20 flex-1 overflow-y-scroll ${style} ${sent ? inactive : active}`} />
                 }
+
+                {errs[prop] && <p> Please input your {prop} </p>}
 
             </label>
         );
@@ -90,7 +178,7 @@ export default function Contact() {
 
     return (
 
-        <div id={name} className={`w-full h-min m-10 px-10 py-10 bg-slate-800 bg-opacity-50 ${Layout.rowC}`}>
+        <div id={name} className={`w-full h-min m-10 px-10 py-10 bg-slate-800 bg-opacity-50 overflow-x-clip ${Layout.rowC}`}>
 
             <div id={label('text')} className={`text-left font-black space-y-1 flex-shrink ${Layout.col}`}>
 
@@ -98,8 +186,8 @@ export default function Contact() {
                 <p className={`text-2xl`}> Please send your feedback here! </p>
 
                 <p className={`text-base`}> Or contact me
-                    <a href={`mailto:${email}`} className={`${Colors.gradience2}`}>
-                        &nbsp; @{email}
+                    <a href={`mailto:${EMAIL}`} className={`${Colors.gradience2}`}>
+                        &nbsp; @{EMAIL}
                     </a>
                 </p>
 
@@ -108,12 +196,12 @@ export default function Contact() {
             <form id={label('form')} onSubmit={onSubmit} className={`ml-20 mr-5 flex-1 ${Layout.center}`}>
                 <div className={`w-full h-min p-16 text-xl text-left flex-1 space-y-5 ${Layout.col} bg-red-500`}>
 
-                    {makeInput('name', 'text', data.name)}
-                    {makeInput('email', 'email', data.email)}
-                    {makeInput('feedback', 'text', data.feedback)}
+                    {makeInput('name', 'text')}
+                    {makeInput('email', 'email')}
+                    {makeInput('feedback', 'text')}
 
                     <button disabled={sent} className={`w-full h-12 flex-shrink bg-slate-900`}
-                    > Submit </button>
+                    > {sent ? getTime() : 'Submit'} </button>
 
                 </div>
             </form>
