@@ -1,4 +1,4 @@
-import { Colors, Layout } from "../Styles";
+import { Colors, Layout } from "../../Styles";
 
 export default function About() {
 
@@ -24,7 +24,7 @@ export default function About() {
 
     return (
 
-        <div id={name} className={`m-10 p-10 bg-slate-800 bg-opacity-50 ${Layout.col}`}>
+        <div id={name} className={`m-10 p-10 ${Colors.bgMain} ${Layout.col}`}>
 
             <div id={label('title')} className={`${Layout.col}`}>
 

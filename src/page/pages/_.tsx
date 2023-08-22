@@ -1,6 +1,6 @@
-import About from './About';
-import Projects from './Projects';
-import Contact from './Contact';
+import About from './about/About';
+import Projects from './projects/Projects';
+import Contact from './contact/Contact';
 
 // Note: Keep Names short (< 10 char) for NAV
 export const pages = [

@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-import { Layout } from "../Styles"
-import { logoCount, Logo } from './projects/logo'
+import { Colors, Layout } from "../../Styles"
+import { logoCount, Logo } from './logo'
 
 export default function Projects() {
 
@@ -25,7 +25,7 @@ export default function Projects() {
 
     return (
 
-        <div id={name} className={`w-full h-min m-10 px-10 py-10 bg-slate-800 bg-opacity-50 ${Layout.col}`}>
+        <div id={name} className={`w-full h-min m-10 px-10 py-10 ${Colors.bgMain} ${Layout.col}`}>
 
             <div id={label('skills')} className={`w-full h-min flex-initial table-fixed border-b-4 border-b-white ${Layout.row}`}>
 
