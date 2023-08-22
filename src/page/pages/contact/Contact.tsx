@@ -7,8 +7,6 @@ import * as CONST from './_constants';
 import { Colors, Layout } from "../../Styles";
 
 
-const Properties: TYPE.Property[] = ['name', 'email', 'feedback'];
-
 export default function Contact() {
 
     const name = 'contact';
@@ -154,12 +152,13 @@ export default function Contact() {
 
     return (
 
-        <div id={name} className={`w-full h-min m-10 px-10 py-10 overflow-x-clip ${Colors.bgMain} ${Layout.rowC}`}>
+        <div id={name} className={`w-11/12 h-5/6 p-10 ${Colors.bgMain} ${Layout.rowC}`}>
+
 
             <div id={label('text')} className={`text-left font-black space-y-1 flex-shrink ${Layout.col}`}>
 
-                <p className={`text-6xl`}> ANY THOUGHTS? </p>
-                <p className={`text-2xl`}> Please send your feedback here! </p>
+                <p className={`text-6xl`}> ANY FEEDBACK? </p>
+                <p className={`text-2xl`}> Please share your thoughts here! </p>
 
                 <p className={`text-base`}> Or contact me
                     <a href={`mailto:${CONST.EMAIL}`} className={`${Colors.gradience2}`}>
@@ -174,11 +173,7 @@ export default function Contact() {
             <form id={label('form')} onSubmit={onSubmit} className={`ml-20 mr-5 flex-1 ${Layout.center}`}>
                 <div className={`w-full h-min p-16 text-xl text-left flex-1 space-y-5 bg-slate-700 ${Layout.col}`}>
 
-                    {/* {makeInput('name', 'text')}
-                    {makeInput('email', 'email')}
-                    {makeInput('feedback', 'text')} */}
-
-                    {Properties.map(p => makeField(p))}
+                    {TYPE.Properties.map(p => makeField(p))}
 
                     <button id={label('submit')}
                         disabled={sent}

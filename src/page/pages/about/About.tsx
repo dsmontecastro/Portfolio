@@ -24,7 +24,7 @@ export default function About() {
 
     return (
 
-        <div id={name} className={`m-10 p-10 ${Colors.bgMain} ${Layout.col}`}>
+        <div id={name} className={`w-11/12 h-4/6 p-10 ${Colors.bgMain} ${Layout.col}`}>
 
             <div id={label('title')} className={`${Layout.col}`}>
 

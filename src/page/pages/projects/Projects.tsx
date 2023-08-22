@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import { Colors, Layout } from "../../Styles"
-import { logoCount, Logo } from './logo'
+import { logoCount, Logo } from './Logo'
 
 export default function Projects() {
 
@@ -25,9 +25,9 @@ export default function Projects() {
 
     return (
 
-        <div id={name} className={`w-full h-min m-10 px-10 py-10 ${Colors.bgMain} ${Layout.col}`}>
+        <div id={name} className={`w-11/12 h-5/6 p-10 ${Colors.bgMain} ${Layout.col}`}>
 
-            <div id={label('skills')} className={`w-full h-min flex-initial table-fixed border-b-4 border-b-white ${Layout.row}`}>
+            <div id={label('skills')} className={`w-full flex-initial table-fixed border-b-4 border-b-white ${Layout.row}`}>
 
                 <p className={`w-min px-5 text-6xl text-left font-black flex-initial ${Layout.rBorder}`}
                 > PROJECTS </p>
@@ -38,8 +38,10 @@ export default function Projects() {
 
             </div>
 
-            <div id={label('info')} className={`w-full h-96 my-5 flex-1 text-black bg-white ${Layout.center}`}>
+            <div id={label('previews')} className={`w-full h-96 my-5 flex-1 bg-slate-700 bg-opacity-30 ${Layout.center}`}>
+
                 {index}
+
             </div>
 
         </div >

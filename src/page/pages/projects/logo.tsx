@@ -5,10 +5,10 @@ import C from '../../../assets/logos/c.svg';
 import Flutter from '../../../assets/logos/flutter.svg';
 import Python from '../../../assets/logos/python.svg';
 import React from '../../../assets/logos/react.svg';
-// import School from '../../../assets/logos/school.svg'
+
+/* ------------------------------------------ Reusable Constants ------------------------------------------ */
 
 export const logos = [
-    // School,
     React,
     Python,
     C,
@@ -17,6 +17,7 @@ export const logos = [
 
 export const logoCount = logos.length;
 
+/* -------------------------------------------- Logo Component -------------------------------------------- */
 
 interface Props {
     id: number
@@ -27,7 +28,7 @@ interface Props {
 export function Logo({ id, index, setIndex }: Props) {
 
     const key = 'logo-' + id;
-    const img = logos[id];
+    const logo = logos[id];
 
     return (
 
@@ -35,7 +36,7 @@ export function Logo({ id, index, setIndex }: Props) {
             className={`flex-shrink px-5 text-center focus:outline-none ${Layout.center} ${Layout.rBorder}`}
         >
 
-            <img src={img} className={`h-10 ${index == id ? 'brightness-110' : 'brightness-50'}`} />
+            <img src={logo} className={`h-10 ${index == id ? 'brightness-110' : 'brightness-50'}`} />
 
         </button>
 
