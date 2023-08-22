@@ -8,19 +8,17 @@ export class Layout {
     static colC = 'flex flex-col justify-center items-center';
 
     static rBorder = 'border-r-2 border-spacing-5 border-collapse';
+
+    static form = 'w-full mt-2 px-3 focus:outline-none';
 }
 
 export class Colors {
-    static bgMain = 'bg-slate-600 bg-opacity-50'
+    static bgMain = 'bg-slate-800 bg-opacity-30';
 
+    static formActive = 'text-white bg-slate-800';
+    static formInactive = 'text-grey-500 bg-slate-900';
 
     static gradience = 'animate-gradience bg-gradient-to-r bg-clip-text text-transparent';
     static gradience1 = `${this.gradience} from-blue-500 via-purple-500 to-green-500`;
     static gradience2 = `${this.gradience} from-pink-500 via-yellow-500 to-green-500`;
 }
-
-export class Text {
-    static header = 'text-6xl font-black'
-}
-
-
