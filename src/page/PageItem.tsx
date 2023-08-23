@@ -15,7 +15,6 @@ export default function Page({ id, refs }: Props) {
         <section key={key} id={key}
             ref={(e) => refs.current[id] = e}
             className={`h-screen border-4 border-white ${Layout.center}`}
-        // className={`border-4 border-white ${Layout.fill} ${Layout.center}`}
         > {pages[id].body} </section>
     );
 

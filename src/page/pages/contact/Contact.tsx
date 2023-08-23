@@ -158,7 +158,7 @@ export default function Contact() {
             <div id={label('text')} className={`text-left font-black space-y-1 flex-shrink ${Layout.col}`}>
 
                 <p className={`text-6xl`}> ANY FEEDBACK? </p>
-                <p className={`text-2xl`}> Please share your thoughts here! </p>
+                <p className={`text-2xl`}> Please share your thoughts with me! </p>
 
                 <p className={`text-base`}> Or contact me
                     <a href={`mailto:${CONST.EMAIL}`} className={`${Colors.gradience2}`}>
