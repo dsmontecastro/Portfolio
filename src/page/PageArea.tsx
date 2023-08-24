@@ -27,7 +27,7 @@ export default function PageArea({ pageRefs, setIndex }: Props) {
 
         <Scrollbars id='scroller'
             onUpdate={(values) => onUpdate(values)}
-            className={`w-full h-screen flex-1 overflow-none`}
+            className={`w-full h-screen flex-1`}
         >
 
             <main id='pages' className={`${Layout.fill} ${Layout.col}`}>

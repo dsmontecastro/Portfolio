@@ -7,16 +7,19 @@ export class Layout {
     static rowC = 'flex flex-row justify-center items-center';
     static colC = 'flex flex-col justify-center items-center';
 
+    static bBorder = 'border-b-4 border-b-white';
     static rBorder = 'border-r-2 border-spacing-5 border-collapse';
 
     static form = 'w-full mt-2 px-3 focus:outline-none';
+
+    static bgMain = 'w-11/12 h-4/6 my-10 2xs:my-14 landscape:mx-10 p-10 space-y-1 portrait:space-y-3';
 }
 
 export class Colors {
-    static bgMain = 'bg-slate-800 bg-opacity-30';
+    static bgMain = 'rounded-2xl bg-slate-800 bg-opacity-95';
 
-    static formActive = 'text-white bg-slate-800';
-    static formInactive = 'text-grey-500 bg-slate-900';
+    static formActive = 'bg-gray-800 shadow-inner shadow-gray-800';
+    static formInactive = 'text-gray-600 bg-black';
 
     static gradience = 'animate-gradience bg-gradient-to-r bg-clip-text text-transparent';
     static gradience1 = `${this.gradience} from-blue-500 via-purple-500 to-green-500`;
