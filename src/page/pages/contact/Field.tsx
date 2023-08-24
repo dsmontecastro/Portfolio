@@ -50,28 +50,37 @@ export default function Field({ property, setValue, validity: valid, sent }: Pro
     });
 
     return (
-        <label className='font-bold'>
+
+        <label className='pb-1 text-left font-bold flex-1
+            max-sm:text-sm sm:text-base md:text-sm lg:text-xs xl:text-sm 2xl:text-base'
+        >
 
             {property.toUpperCase()}
 
             {(property != 'feedback') ?
 
-                <input id={`field-${property}`} type={InputType[property]} value={text}
-                    disabled={sent} onChange={onChange} className={`h-10 font-semibold flex-none
-                    ${valid ? '' : ErrBorder} ${Layout.form} ${sent ? Colors.formInactive : Colors.formActive}`} />
+                <input
+                    id={`field-${property}`} type={InputType[property]}
+                    value={text} disabled={sent} onChange={onChange}
+                    className={`h-8 m-0 font-semibold flex-none
+                        ${valid ? '' : ErrBorder} ${Layout.form}
+                        ${sent ? Colors.formInactive : Colors.formActive}
+                    `}
+                />
 
                 :
 
                 <textarea id={`field-${property}`} value={text} disabled={sent} onChange={onChange}
-                    className={`h-24 py-2 flex-1 overflow-y-scroll ${valid ? '' : ErrBorder}
+                    className={`h-16 pt-1 pb-4 flex-1 ${valid ? '' : ErrBorder}
                         ${Layout.form} ${sent ? Colors.formInactive : Colors.formActive}`} />
 
             }
 
-            <div className='h-5' >
-                {!valid && <p className='text-sm text-red-500 font-bold'>
-                    ⚠ Your {property} must not be empty...
-                </p>}
+            <div className={`text-red-500 font-bold ${valid ? 'hidden' : 'visible'} ${Layout.row}`}>
+                <div> ⚠ &nbsp; </div>
+                <div className='max-lg:hidden'> Your {property.toUpperCase()} &nbsp; </div>
+                <div className='-ml-1 max-sm:hidden'> Field is &nbsp; </div>
+                <div className='-ml-1 max-xs:hidden'> Empty... </div>
             </div>
 
         </label>

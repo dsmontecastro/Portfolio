@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import emailjs from 'emailjs-com';
 
-import Field from './Field';
-import * as TYPE from './_types';
-import * as CONST from './_constants';
 import { Colors, Layout } from "../../Styles";
+import Wheel from "../../../assets/wheel/Wheel";
+
+import * as CONST from './_constants';
+import * as TYPE from './_types';
+import Field from './Field';
 
 
 export default function Contact() {
@@ -107,25 +109,26 @@ export default function Contact() {
     /* ---------------------------------- Submission of Feedback via EMAILJS ---------------------------------- */
 
     function onSubmit(e: TYPE.Submission) {
+
         e.preventDefault();
 
         if (validate()) {
 
-            emailjs.sendForm(
-                import.meta.env.VITE_SID,
-                import.meta.env.VITE_FORM,
-                e.currentTarget,
-                import.meta.env.VITE_KEY)
-                .then(
-                    (_) => disableSend(),
-                    (error) => {
-                        console.log('FAILED...', error);
-                    }
-                );
+            // emailjs.sendForm(
+            //     import.meta.env.VITE_SID,
+            //     import.meta.env.VITE_FORM,
+            //     e.currentTarget,
+            //     import.meta.env.VITE_KEY)
+            //     .then(
+            //         (_) => disableSend(),
+            //         (error) => {
+            //             console.log('FAILED...', error);
+            //         }
+            //     );
 
-            // // For debugging
-            // console.log(data);
-            // disableSend();
+            // For debugging
+            console.log(data);
+            disableSend();
 
         }
     }
@@ -152,39 +155,64 @@ export default function Contact() {
 
     return (
 
-        <div id={name} className={`w-11/12 h-5/6 p-10 ${Colors.bgMain} ${Layout.rowC}`}>
+        <div id={name} className={`w-screen relative ${Layout.center}`}>
+
+            <Wheel cw={true} rad={'h-full'} pos={'translate-y-96 -translate-x-[25%]'} />
+            <Wheel cw={false} rad={'h-full'} pos={'translate-y-96 translate-x-[25%]'} />
+
+            <div id={label('main')} className={`portrait:flex-col ${Layout.rowC} ${Layout.bgMain} ${Colors.bgMain}`}>
+
+                <div className={`flex-1 ${Layout.fill}`}>
+
+                    <div id={label('text')}
+                        className={`w-full font-black
+                        landscape:mb-28 portrait:py-6
+                        text-left portrait:text-center
+                        space-y-1 flex-initial ${Layout.col}
+                    `}>
+
+                        <p className={`p-1.5 max-2xs:text-lg
+                            2xs:text-xl xs:text-3xl sm:text-5xl
+                            xl:text-6xl 2xl:text-7xl`}
+                        >  ANY FEEDBACK? </p>
+
+                        <p className={`max-xs:text-[0.6rem] xs:text-[0.7rem]
+                            sm:text-base lg:text-xl xl:text-2xl 2xl:text-3xl`}
+                        >
+                            Please share your thoughts with me <br />
+
+                            <a href={`mailto:${CONST.EMAIL}`} className={`${Colors.gradience2}`}>
+                                @{CONST.EMAIL}
+                            </a>
+
+                        </p>
+
+                    </div>
 
 
-            <div id={label('text')} className={`text-left font-black space-y-1 flex-shrink ${Layout.col}`}>
+                </div>
 
-                <p className={`text-6xl`}> ANY FEEDBACK? </p>
-                <p className={`text-2xl`}> Please share your thoughts with me! </p>
+                <form id={label('form')} onSubmit={onSubmit} className={`w-full flex-1 ${Layout.fill}`}>
 
-                <p className={`text-base`}> Or contact me
-                    <a href={`mailto:${CONST.EMAIL}`} className={`${Colors.gradience2}`}>
-                        &nbsp; @{CONST.EMAIL}
-                    </a>
-                </p>
+                    <div id={label('form-body')}
+                        className={`w-5/6 h-5/6 mx-auto px-10 py-12
+                            rounded-3xl bg-gray-900 bg-opacity-90
+                            flex-1 space-y-3 ${Layout.col}
+                    `}>
 
-                <div className='h-32' />
+                        {TYPE.Properties.map(p => makeField(p))}
+
+                        <button id={label('submit')} disabled={sent}
+                            className={`w-full py-1 font-bold flex-1 ${sent ? 'bg-black' : Colors.formActive}
+                        `}> {sent ? getTime() : 'SUBMIT'} </button>
+
+                    </div>
+
+                </form>
 
             </div>
 
-            <form id={label('form')} onSubmit={onSubmit} className={`ml-20 mr-5 flex-1 ${Layout.center}`}>
-                <div className={`w-full h-min p-16 text-xl text-left flex-1 space-y-5 bg-slate-700 ${Layout.col}`}>
-
-                    {TYPE.Properties.map(p => makeField(p))}
-
-                    <button id={label('submit')}
-                        disabled={sent}
-                        className={`w-full h-12 font-bold flex-shrink
-                            ${sent ? Colors.formInactive : Colors.formActive}
-                    `}> {sent ? getTime() : 'Submit'} </button>
-
-                </div>
-            </form>
-
-        </div>
+        </div >
 
     );
 
