@@ -114,21 +114,22 @@ export default function Contact() {
 
         if (validate()) {
 
-            // emailjs.sendForm(
-            //     import.meta.env.VITE_SID,
-            //     import.meta.env.VITE_FORM,
-            //     e.currentTarget,
-            //     import.meta.env.VITE_KEY)
-            //     .then(
-            //         (_) => disableSend(),
-            //         (error) => {
-            //             console.log('FAILED...', error);
-            //         }
-            //     );
+            if (import.meta.env.DEV) {
+                console.log(data);
+                disableSend();
+            }
 
-            // For debugging
-            console.log(data);
-            disableSend();
+            else {
+                emailjs.sendForm(
+                    import.meta.env.VITE_SID,
+                    import.meta.env.VITE_FORM,
+                    e.currentTarget,
+                    import.meta.env.VITE_KEY)
+                    .then(
+                        (_) => disableSend(),
+                        (error) => console.log('FAILED...', error)
+                    );
+            }
 
         }
     }
@@ -157,8 +158,8 @@ export default function Contact() {
 
         <div id={name} className={`w-screen relative ${Layout.center}`}>
 
-            <Wheel cw={true} rad={'h-full'} pos={'translate-y-96 -translate-x-[25%]'} />
-            <Wheel cw={false} rad={'h-full'} pos={'translate-y-96 translate-x-[25%]'} />
+            <Wheel cw={true} rad={'h-11/12'} pos={'-translate-x-[25%] portrait:translate-y-[25%]'} />
+            <Wheel cw={false} rad={'h-11/12'} pos={'translate-x-[25%] portrait:translate-y-[25%]'} />
 
             <div id={label('main')} className={`portrait:flex-col ${Layout.rowC} ${Layout.bgMain} ${Colors.bgMain}`}>
 

@@ -13,7 +13,7 @@ export default function Wheel({ cw, rad, pos }: Props) {
     const anim = cw ? 'animate-cw' : 'animate-ccw'
 
     return (
-        <div className={`absolute ${rad} ${pos} overflow-x-hidden`}>
+        <div className={`absolute ${rad} ${pos}`}>
             <img src={src} className={`z-0 ${anim}`} />
         </div>
     );

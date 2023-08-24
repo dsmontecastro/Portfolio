@@ -7,12 +7,12 @@ export class Layout {
     static rowC = 'flex flex-row justify-center items-center';
     static colC = 'flex flex-col justify-center items-center';
 
+    static bgMain = 'w-11/12 h-4/6 my-10 2xs:my-14 landscape:mx-10 p-10 space-y-1 portrait:space-y-3';
+
     static bBorder = 'border-b-4 border-b-white';
     static rBorder = 'border-r-2 border-spacing-5 border-collapse';
 
     static form = 'w-full mt-2 px-3 focus:outline-none';
-
-    static bgMain = 'w-11/12 h-4/6 my-10 2xs:my-14 landscape:mx-10 p-10 space-y-1 portrait:space-y-3';
 }
 
 export class Colors {
