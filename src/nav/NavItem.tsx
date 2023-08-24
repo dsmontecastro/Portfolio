@@ -7,13 +7,13 @@ interface Props {
     id: number
     index: number
     refs: PageRefs
-    isLast: boolean
+    last: boolean
 }
 
 
 const scrollOptions: ScrollIntoViewOptions = { behavior: 'smooth', block: 'center' };
 
-export default function NavItem({ id, index, refs, isLast }: Props) {
+export default function NavItem({ id, index, refs, last }: Props) {
 
     const itemKey = 'nav-item-' + id;
     const gapKey = 'nav-gap-' + id;
@@ -25,7 +25,7 @@ export default function NavItem({ id, index, refs, isLast }: Props) {
 
     return (
 
-        <li id={itemKey} key={itemKey} className={`w-min ${isLast ? 'flex-initial' : 'flex-1'} ${Layout.col}`}>
+        <li id={itemKey} key={itemKey} className={`w-min ${last ? 'flex-initial' : 'flex-1'} ${Layout.col}`}>
 
             <div className={`flex-initial ${Layout.row}`}>
 
@@ -41,13 +41,13 @@ export default function NavItem({ id, index, refs, isLast }: Props) {
                 `}> ◉ </button>
 
                 <p className={
-                    `ml-3 -mt-0.5 flex-grow ${Layout.center} ${Layout.hide}
+                    `ml-3 -mt-0.5 break-normal flex-grow ${Layout.center} ${Layout.hide}
                     ${id == index ? Colors.textActive : Colors.textInactive}
                 `}> {pages[id].name} </p>
 
             </div >
 
-            {!isLast && <div id={gapKey} className='flex-1' />}
+            {!last && <div id={gapKey} className='flex-1' />}
 
         </li >
     );

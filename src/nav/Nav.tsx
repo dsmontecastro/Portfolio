@@ -22,18 +22,18 @@ export default function Nav({ index, pageRefs }: Props) {
             id={id}
             index={index}
             refs={pageRefs}
-            isLast={isLast}
+            last={isLast}
         />
     }
 
     return (
 
-        <div id='nav' className={`w-min h-full ${Layout.col}`}>
+        <div id='nav' className={`w-min h-full bg-black bg-opacity-90 ${Layout.col}`}>
 
             <header id='nav-head'
-                className={`h-[10%] pt-5 pb-2
-                flex-initial text-4xl text-center tracking-widest
-                ${Layout.center} ${Layout.hide}`}
+                className={`h-[10%] pt-5 pb-2 text-center tracking-widest
+                lg:text-4xl md:text-3xl sm:text-2xl max-sm:hidden
+                flex-initial ${Layout.center} ${Layout.hide}`}
             > NAV </header>
 
             <div id='nav-body'
@@ -45,12 +45,12 @@ export default function Nav({ index, pageRefs }: Props) {
 
                 <div id='nav-line'
                     className={`
-                    w-4 my-2 translate-x-6
+                    w-4 my-2 z-80 translate-x-6
                     2xl:w-7 2xl:my-10 2xl:translate-x-11
                     flex-initial ${Colors.bg}`}
                 />
 
-                <div id='nav-items' className={`z-10 h-full -ml-0.5 flex-1 ${Layout.col}`}>
+                <div id='nav-items' className={`h-full -ml-0.5 flex-1 ${Layout.col}`}>
                     {Array(pageCount).fill(null).map((_, i) => makeNavItem(i))}
                 </div>
 
