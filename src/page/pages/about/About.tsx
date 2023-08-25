@@ -26,6 +26,7 @@ export default function About() {
     }
 
     return (
+
         <div id={name} className={`w-screen ${Layout.center}`}>
 
             <Wheel cw={true} rad={'scale-125'} pos={wheelPos} />
