@@ -17,6 +17,13 @@ export const logos = [
     Flutter
 ]
 
+export const logoNames = [
+    'react',
+    'python',
+    'csharp',
+    'flutter'
+]
+
 export const logoCount = logos.length;
 const last = logoCount - 1;
 

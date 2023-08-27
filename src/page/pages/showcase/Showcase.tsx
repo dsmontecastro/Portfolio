@@ -6,9 +6,9 @@ import { logoCount, Logo } from './components/Logo'
 import Skill from "./components/Skill";
 
 
-export default function Projects() {
+export default function Showcase() {
 
-    const name = 'projects';
+    const name = 'showcase';
 
     const [index, setIndex] = useState<number>(0);
 
@@ -46,9 +46,7 @@ export default function Projects() {
                 </div>
 
                 <div id={label('projects')} className={`h-[80%] bg-slate-700 bg-opacity-30 ${Layout.center}`}>
-
-                    <Skill id={index} />
-
+                    <Skill index={index} />
                 </div>
 
             </div >
