@@ -1,21 +1,17 @@
-import logos from "./Logo";
+// import logos from "./Logo";
+import { Project, ProjectList } from "./_types";
 
-export type Project = {
-    'name': string
-    'desc': string
-    'image': string
-}
-
-export type ProjectList = {
-    'skill': string
-    'projects': Project[]
+const test: Project = {
+    name: 'test',
+    desc: 'test',
+    image: 'x',
 }
 
 export const projectList: ProjectList[] = [
-    { 'skill': 'react', 'projects': [] },
-    { 'skill': 'python', 'projects': [] },
-    { 'skill': 'csharp', 'projects': [] },
-    { 'skill': 'flutter', 'projects': [] }
+    { 'skill': 'react', 'projects': [test, test, test, test] },
+    { 'skill': 'python', 'projects': [test, test, test] },
+    { 'skill': 'csharp', 'projects': [test, test] },
+    { 'skill': 'flutter', 'projects': [test] }
 ]
 
 export const previewCount = projectList.length;
