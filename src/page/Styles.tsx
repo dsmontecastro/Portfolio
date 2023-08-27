@@ -11,6 +11,8 @@ export class Layout {
 
     static form = 'w-full mt-2 px-3 focus:outline-none';
     static logo = 'max-2xs:h-8 2xs:h-10 xs:h-14 sm:h-16 md:h-12 lg:h-16'
+
+    static previewScroller = `overflow-x-scroll overflow-y-hidden flex-1 ${Layout.row} ${Layout.fill}`;
 }
 
 export class Colors {
@@ -21,7 +23,7 @@ export class Colors {
 
     static bBorder = 'border-b-4 border-b-white';
     static rBorder = 'border-r-4 border-spacing-5 border-collapse';
-    static sBorder = 'border-r-8 border-l-8 border-white'
+    static sBorder = 'border-r-4 border-l-4 border-white'
 
     static gradience = 'animate-gradience bg-gradient-to-r bg-clip-text text-transparent';
     static gradience1 = `${this.gradience} from-blue-500 via-purple-500 to-green-500`;

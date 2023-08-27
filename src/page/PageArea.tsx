@@ -25,9 +25,8 @@ export default function PageArea({ pageRefs, setIndex }: Props) {
 
     return (
 
-        <Scrollbars id='scroller'
-            onUpdate={(values) => onUpdate(values)}
-            className='flex-1'
+        <Scrollbars id='scroller' onUpdate={onUpdate}
+            renderView={props => <div {...props} className='flex-1' />}
         >
 
             <main id='pages' className={Layout.col}>

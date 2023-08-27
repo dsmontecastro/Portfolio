@@ -47,7 +47,7 @@ export function Logo({ id, index, setIndex }: Props) {
 
             <input type='image' src={logo} onClick={() => setIndex(id)}
                 className={`m-auto ${Layout.logo} ${Layout.center}
-                    max-xs:p-1 xs:p-4 sm:p-2 md:p-4 lg:p-2
+                    max-xs:p-1 xs:p-4 sm:p-2 md:p-4
                     ${index == id ? '' : 'hover:brightness-75'}
                     ${index == id ? '' : 'focus:brightness-75'}
                     ${index == id ? 'brightness-110' : 'brightness-50'}
