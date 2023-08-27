@@ -2,8 +2,8 @@ import { useState } from "react";
 
 import { Colors, Layout } from "../../Styles"
 
-import { logoCount, Logo } from './Logo'
-import Preview from "./Preview";
+import { logoCount, Logo } from './components/Logo'
+import Skill from "./components/Skill";
 
 
 export default function Projects() {
@@ -29,34 +29,31 @@ export default function Projects() {
 
     return (
 
-        <div id={name} className={`${Layout.bgMain} ${Colors.bgMain}`}>
+        <div id={name} className={`w-screen ${Layout.center}`}>
 
-            <div id={label('main')} className={`p-10 ${Layout.col}`}>
+            <div id={label('main')} className={`${Layout.col} ${Layout.bgMain} ${Colors.bgMain}`}>
 
-                <div id={label('skills')} className={`w-full mx-auto mb-5 flex-non ${Layout.row} ${Colors.bBorder}`}>
+                <div id={label('skills')} className={`w-full mb-5 items-center ${Layout.logo} ${Layout.row} ${Colors.bBorder}`}>
 
-                    <p className={`px-4 pb-3.5 pt-1 max-sm:hidden flex-none
-                            text-left font-black sm:text-2xl md:text-4xl
-                            2xl:text-[5.5rem] xl:text-[4.0rem] lg:text-5xl
-                    `}> PROJECTS </p>
+                    <p id={label('title')}
+                        className={`px-3 text-center font-black flex-none max-md:hidden md:text-5xl lg:text-6xl`}
+                    > PROJECTS </p>
 
-                    <div id={label('logos')} className={`w-7/12 max-sm:w-full flex-none ${Layout.row} ${Colors.sBorder}`}>
+                    <div id={label('logos')} className={`max-md:flex-1 ${Layout.rowC} ${Colors.sBorder}`}>
                         {Array(logoCount).fill(null).map((_, id) => makeImage(id))}
                     </div>
 
                 </div>
 
-                <div id={label('previews')} className={`w-full h-full flex-none bg-slate-700 bg-opacity-30 ${Layout.center}`}>
+                <div id={label('projects')} className={`h-[80%] bg-slate-700 bg-opacity-30 ${Layout.center}`}>
 
-                    {index + 1}
-
-                    <Preview id={index} />
+                    <Skill id={index} />
 
                 </div>
 
             </div >
 
-        </div >
+        </div>
     );
 
 }
