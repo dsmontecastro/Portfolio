@@ -156,7 +156,7 @@ export default function Contact() {
 
     return (
 
-        <div id={name} className={`w-screen relative ${Layout.center}`}>
+        <div id={name} className={`w-full ${Layout.center}`}>
 
             <Wheel cw={true} rad={'h-11/12'} pos={'-translate-x-[25%] portrait:translate-y-[25%]'} />
             <Wheel cw={false} rad={'h-11/12'} pos={'translate-x-[25%] portrait:translate-y-[25%]'} />

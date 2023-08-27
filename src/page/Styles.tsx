@@ -1,5 +1,5 @@
 export class Layout {
-    static fill = 'w-full w-full';
+    static fill = 'w-full h-full';
     static col = 'flex flex-col';
     static row = 'flex flex-row';
 

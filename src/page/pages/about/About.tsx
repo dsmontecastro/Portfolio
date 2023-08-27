@@ -27,7 +27,7 @@ export default function About() {
 
     return (
 
-        <div id={name} className={`w-screen ${Layout.center}`}>
+        <div id={name} className={`w-full ${Layout.center}`}>
 
             <Wheel cw={true} rad={'scale-125'} pos={wheelPos} />
             <Wheel cw={false} rad={'scale-100'} pos={wheelPos} />
@@ -37,14 +37,14 @@ export default function About() {
 
             <div id={label('main')} className={`${Layout.col} ${Layout.bgMain} ${Colors.bgMain}`}>
 
-                <div id={label('title')} className={`flex-none font-black text-left portrait:text-center ${Layout.col}`}>
+                <div id={label('title')} className={`font-black text-left portrait:text-center ${Layout.col}`}>
 
                     <div id={label('greeting')}
                         className={`mb-4 flex-shrink portrait:flex-col ${Layout.row}
                             3xs:text-lg 2xs:text-xl xs:text-2xl sm:text-3xl
                             md:text-4xl lg:text-5xl xl:text-7xl 2xl:text-7xl
                     `}> <p className='mr-1'> GOOD// </p>
-                        <p className={`${Colors.gradience1}`}> {parseTime()}! </p>
+                        <p className={Colors.gradience1}> {parseTime()}! </p>
                     </div>
 
                     <div id={label('intro')}
