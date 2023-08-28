@@ -37,22 +37,20 @@ export default function Skill({ index }: Props) {
     function step(step: Step) {
         const _id = id + step;
         if (_id >= 0 && _id < count) {
-            // setScrolling(true);
             const preview = previewRefs.current[_id];
             preview?.scrollIntoView(scrollOptions);
-            // setScrolling(false);
-            // setID(_id);
         }
     }
 
+    function scrollTo(i: number) {
+        const preview = previewRefs.current[i];
+        preview?.scrollIntoView(scrollOptions);
+    }
+
     function onScroll(values: positionValues) {
-        // if (scrolling) {
-        console.log('scrolling');
         const per = values.left;
         const pos = (count - 1) * per;
         setID(Math.round(pos));
-        console.log(id);
-        // }
     }
 
     /* -------------------------------- Change Project Previews based on Index -------------------------------- */
@@ -74,11 +72,11 @@ export default function Skill({ index }: Props) {
 
     return (
 
-        <div key={name} id={name} className={`h-[50vh] landscape:h-[100vh] py-3 landscape:px-2 bg-slate-900 ${Layout.colC}`}>
+        <div key={name} id={name} className={`h-[75vw] landscape:h-[40vw] p-3 bg-slate-900 ${Layout.colC}`}>
 
             <div id={label('main')} className={`flex-1 ${Layout.rowC} ${Layout.fill}`}>
 
-                <button onClick={prev} className={`h-full portrait:hidden ${Layout.center}`}>
+                <button onClick={prev} className={`h-full mr-5 portrait:hidden ${Layout.center}`}>
                     <AiFillCaretLeft />
                 </button>
 
@@ -86,7 +84,7 @@ export default function Skill({ index }: Props) {
                     renderView={props => <div {...props} className={Layout.previewScroller} />}
                 > {projects.map((project, id) => makePreviews(id, project))} </Scrollbars >
 
-                <button onClick={next} className={`h-full portrait:hidden ${Layout.center}`}>
+                <button onClick={next} className={`h-full ml-5 portrait:hidden ${Layout.center}`}>
                     <AiFillCaretRight />
                 </button>
 
@@ -94,9 +92,9 @@ export default function Skill({ index }: Props) {
 
             <div id={label('swiper')} className={`w-full h-[5%] landscape:gap-[10] ${Layout.rowC}`}>
                 {Array(count).fill(null).map((_, i) =>
-                    <p key={`swiper-${i}`}>
+                    <button key={`swiper-${i}`} onClick={() => scrollTo(i)}>
                         {(i == id) ? '◈' : '◇'}
-                    </p>
+                    </button>
                 )}
             </div>
 
