@@ -57,7 +57,7 @@ export default function About() {
 
                 <p id={label('info')}
                     className={`w-full lg:w-3/5 portrait:w-full p-6 rounded-md align-middle
-                    3xs:text-[0.1rem] 2xs:text-xs xs:text-base sm:text- md:text-md lg:text-lg xl:text-xl 2xl:text-2xl
+                    3xs:text-xs 2xs:text-xs xs:text-base sm:text- md:text-md lg:text-lg xl:text-xl 2xl:text-2xl
                     text-justify portrait:text-center overflow-y-scroll flex-shrink bg-slate-900`}
                 >   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                     ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
