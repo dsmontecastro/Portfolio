@@ -3,6 +3,7 @@ import emailjs from 'emailjs-com';
 
 import { Colors, Layout } from "../../Styles";
 import Wheel from "../../../assets/wheel/Wheel";
+// import LinkedIn from '../../../assets/logos/linkedin.svg';
 
 import * as CONST from './_constants';
 import * as TYPE from './_types';
@@ -12,6 +13,7 @@ import Field from './Field';
 export default function Contact() {
 
     const name = 'contact';
+    const linkedin = 'https://www.linkedin.com/in/daniel-montecastro-83b88a234/';
 
     function label(id: string) {
         return `${name}-${id}`;
@@ -183,8 +185,12 @@ export default function Contact() {
                             Please share your thoughts with me <br />
 
                             <a href={`mailto:${CONST.EMAIL}`} className={`${Colors.gradience2}`}>
-                                @{CONST.EMAIL}
+                                @{CONST.EMAIL} <br />
                             </a>
+
+                            or check my <a href={linkedin} className={Colors.gradience1}> LinkedIn </a> profile.
+
+                            {/* <a href={linkedin}> <img src={LinkedIn} className={`w-1/12`} /> </a> */}
 
                         </p>
 
