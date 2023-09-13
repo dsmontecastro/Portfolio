@@ -1,0 +1,106 @@
+{
+    "react": [
+        {
+            "name": "Portfolio",
+            "image": "/portfolio.png",
+            "linkProj": "",
+            "linkCode": "https://github.com/dsmontecastro/Portfolio",
+            "desc": [
+                "THIS website was created using React, Vite, TypeScript, and TailwindCSS.",
+                "As a challenge, it makes use of as little a number of external packages and images.",
+                "Other than EmailJS & Custom Scrollbars, it makes the most out of pure React.",
+                "The code structure makes it very scalable, maximizing the maintainability of the project",
+                "while minimizing the number of files to be modified whenever changes occur."
+            ]
+        },
+        {
+            "name": "Sungka Online",
+            "image": "/sungka.png",
+            "linkProj": "",
+            "linkCode": "https://github.com/dsmontecastro/Sungka",
+            "desc": [
+                "BEING my first React project, I had to learn as  I code, and learn I did.",
+                "This application uses Typescript and Sockets.io to operate rooms and matches for Sungka.",
+                "Code for both the front (server) and back (client) ends can be found in the repostory.",
+                "Since this entire idea initially came from a chat app, I also added chat features, because why not?",
+                "Still, having been my very first attempt, there are still optimizations to be made;",
+                "improvements to the the file and CSS layouts are the first priorities if I ever choose to revisit this."
+            ]
+        }
+    ],
+    "python": [
+        {
+            "name": "Word-Game",
+            "image": "/wordgame.png",
+            "linkProj": "",
+            "linkCode": "https://github.com/dsmontecastro/Word-Game",
+            "desc": [
+                ""
+            ]
+        },
+        {
+            "name": "PythonDex",
+            "image": "/pythondex.png",
+            "linkProj": "",
+            "linkCode": "https://github.com/dsmontecastro/PythonDex",
+            "desc": [
+                ""
+            ]
+        },
+        {
+            "name": "Air Quality Analysis",
+            "image": "/air_quality.png",
+            "linkProj": "",
+            "linkCode": "https://github.com/dsmontecastro/Air-Quality-Analysis",
+            "desc": [
+                ""
+            ]
+        },
+        {
+            "name": "Flood Risk Analysis",
+            "image": "/flood_risk.png",
+            "linkProj": "",
+            "linkCode": "https://github.com/dsmontecastro/Flood-Risk-Analysis",
+            "desc": [
+                ""
+            ]
+        }
+    ],
+    "csharp": [
+        {
+            "name": "Thesis Project",
+            "image": "/thesis.png",
+            "linkProj": "",
+            "linkCode": "https://github.com/dsmontecastro/Thesis",
+            "desc": [
+                ""
+            ]
+        },
+        {
+            "name": "Games of the Generals",
+            "image": "/gog.png",
+            "linkProj": "",
+            "linkCode": "https://github.com/dsmontecastro/GoG",
+            "desc": [
+                ""
+            ]
+        }
+    ],
+    "flutter": [
+        {
+            "name": "Dexy",
+            "image": "/dexy.png",
+            "linkProj": "",
+            "linkCode": "https://github.com/dsmontecastro/Dexy",
+            "desc": [
+                "A PokeDex app made in Flutter/Dart, for Desktop and Mobile,based on an old college prototype",
+                "It accesses resources from PokeAPI, and stores most data via SQFLite.",
+                "As for the sprites, they are saved locally in the assets folder,",
+                "with some manual modifications to minimize file sizes.",
+                "This is still in development, with only the major features working.",
+                "Updates would implement more screens for displaying Pokemon data,",
+                "as well as allowing the user to access API & theme controls."
+            ]
+        }
+    ]
+}

@@ -1,19 +1,19 @@
-import { useRef, useState } from "react";
-import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
+import { useRef, useState } from 'react';
+import { AiFillCaretLeft, AiFillCaretRight } from 'react-icons/ai';
+import Scrollbars, { positionValues } from 'react-custom-scrollbars-2';
 
-import { Layout } from "../../../Styles";
-import { Project } from "./_types";
+import { Layout } from '../../../Styles';
 
-import { projectList } from "./_";
-import Previews from "./Previews";
-import Scrollbars, { positionValues } from "react-custom-scrollbars-2";
+import Projects from '../data/projects.json';
+import { Project, ProjectList } from '../data/_types';
+
+import Previews from './Previews';
+import { logoNames } from './Logo';
 
 
-interface Props {
-    index: number
-}
-
+interface Props { index: number }
 type Step = 1 | -1;
+
 const scrollOptions: ScrollIntoViewOptions = { behavior: 'smooth', block: 'center' };
 
 export default function Skill({ index }: Props) {
@@ -27,7 +27,6 @@ export default function Skill({ index }: Props) {
     /* ----------------------- Controls ID State corresponding to current Preview Shown ----------------------- */
 
     const [id, setID] = useState<number>(0);
-    // const [scrolling, setScrolling] = useState<boolean>(false);
 
     const previewRefs = useRef<(HTMLElement | null)[]>([]);
 
@@ -55,7 +54,9 @@ export default function Skill({ index }: Props) {
 
     /* -------------------------------- Change Project Previews based on Index -------------------------------- */
 
-    const projects: Project[] = projectList[index].projects;
+    const projectList = JSON.parse(JSON.stringify(Projects)) as ProjectList;
+
+    const projects: Project[] = projectList[logoNames[index]];
     const count = projects.length;
 
     function makePreviews(id: number, project: Project) {
@@ -76,22 +77,29 @@ export default function Skill({ index }: Props) {
 
             <div id={label('main')} className={`flex-1 ${Layout.rowC} ${Layout.fill}`}>
 
-                <button onClick={prev} className={`h-full mr-5 portrait:hidden ${Layout.center}`}>
-                    <AiFillCaretLeft />
-                </button>
+                <button onClick={prev}
+                    className={`h-full mr-5
+                    portrait:hidden ${Layout.center}
+                    ${count > 1 ? 'visible' : 'invisible'}
+                `}> <AiFillCaretLeft /> </button>
 
                 <Scrollbars onUpdate={onScroll}
                     renderView={props => <div {...props} className={Layout.previewScroller} />}
                 > {projects.map((project, id) => makePreviews(id, project))} </Scrollbars >
 
-                <button onClick={next} className={`h-full ml-5 portrait:hidden ${Layout.center}`}>
-                    <AiFillCaretRight />
-                </button>
+                <button onClick={next}
+                    className={`h-full ml-5
+                    portrait:hidden ${Layout.center}
+                    ${count > 1 ? 'visible' : 'invisible'}
+                `}> <AiFillCaretRight /> </button>
 
             </div>
 
-            <div id={label('swiper')} className={`w-full h-[5%] landscape:gap-[10] ${Layout.rowC}`}>
-                {Array(count).fill(null).map((_, i) =>
+            <div id={label('swiper')}
+                className={`w-full h-[5%]
+                landscape:gap-[10] ${Layout.rowC}
+                ${count > 1 ? 'visible' : 'invisible'}
+            `}> {Array(count).fill(null).map((_, i) =>
                     <button key={`swiper-${i}`} onClick={() => scrollTo(i)}>
                         {(i == id) ? '◈' : '◇'}
                     </button>
