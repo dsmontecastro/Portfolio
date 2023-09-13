@@ -3,14 +3,17 @@ import { Colors, Layout } from '../../../Styles';
 
 /* ---------------------------------------------- SVG Imports --------------------------------------------- */
 
+// import JavaScript from '../../../../assets/logos/javascript.svg';
+
+import React from '../../../../assets/logos/react.svg';
+import Python from '../../../../assets/logos/python.svg';
 import CSharp from '../../../../assets/logos/csharp.svg';
 import Flutter from '../../../../assets/logos/flutter.svg';
-import Python from '../../../../assets/logos/python.svg';
-import React from '../../../../assets/logos/react.svg';
 
 /* ------------------------------------------ Reusable Constants ------------------------------------------ */
 
 export const logos = [
+    // JavaScript,
     React,
     Python,
     CSharp,
@@ -18,6 +21,7 @@ export const logos = [
 ]
 
 export const logoNames = [
+    // 'javascript',
     'react',
     'python',
     'csharp',
