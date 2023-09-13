@@ -41,7 +41,7 @@ export default function About() {
 
                     <div id={label('greeting')}
                         className={`mb-4 flex-shrink portrait:flex-col ${Layout.row}
-                            3xs:text-lg 2xs:text-xl xs:text-2xl sm:text-3xl
+                            3xs:text-lg 2xs:text-xl xs:text-xl sm:text-3xl
                             md:text-4xl lg:text-5xl xl:text-7xl 2xl:text-7xl
                     `}> <p className='mr-1'> GOOD// </p>
                         <p className={Colors.gradience1}> {parseTime()}! </p>
@@ -56,14 +56,12 @@ export default function About() {
                 </div>
 
                 <p id={label('info')}
-                    className={`w-full lg:w-3/5 portrait:w-full p-6 rounded-md align-middle
+                    className={`lg:w-3/5 portrait:w-full p-6 rounded-md align-middle
                     3xs:text-xs 2xs:text-xs xs:text-base sm:text- md:text-md lg:text-lg xl:text-xl 2xl:text-2xl
                     text-justify portrait:text-center overflow-y-scroll flex-shrink bg-slate-900`}
-                >   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                    ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                    laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                    velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                    sunt in culpa qui officia deserunt mollit anim id estlaborum.
+                >   Coming from a Computer Science background, I am skilled in all manners of tasks,
+                    from front-end to back, UI/UX to data, from mobile to desktop. My interests lie
+                    in the creation of actual software, applications, websites, and games for sale or use.
                 </p>
 
             </div >
