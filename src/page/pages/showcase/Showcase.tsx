@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import { Colors, Layout } from "../../Styles"
+import { Colors, Layout } from '../../Styles'
 
+import Skill from './components/Skill';
 import { logoCount, Logo } from './components/Logo'
-import Skill from "./components/Skill";
 
 
 export default function Showcase() {
@@ -38,7 +38,7 @@ export default function Showcase() {
                 <div id={label('skills')} className={`w-full mb-4 items-center ${Layout.logo} ${Layout.row} ${Colors.bBorder}`}>
 
                     <p id={label('title')}
-                        className={`px-3 text-center font-black flex-none max-md:hidden md:text-5xl lg:text-6xl`}
+                        className={`px-5 text-center font-black flex-none max-md:hidden md:text-5xl lg:text-6xl`}
                     > PROJECTS </p>
 
                     <div id={label('logos')} className={`max-md:flex-1 ${Layout.rowC} ${Colors.sBorder}`}>
