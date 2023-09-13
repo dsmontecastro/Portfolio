@@ -31,7 +31,7 @@ export default function NavItem({ id, index, refs, last }: Props) {
 
                 <button onClick={() => navToPage()} className={`
                     w-7 h-7 text-lg align-middle
-                    2xl:w-14 2xl:h-14 2xl:text-2xl
+                    2xl:w-14 2xl:h-14 2xl:text-2xl 2xl:mr-3
                     ml-1 flex-initial rounded-full
                     focus:outline-none
                     ${Layout.center} ${Colors.bg} 
@@ -40,8 +40,9 @@ export default function NavItem({ id, index, refs, last }: Props) {
                     ${id == index ? Colors.bttnActive : Colors.bttnInactive}
                 `}> ◉ </button>
 
-                <p className={
-                    `ml-3 -mt-0.5 break-normal flex-grow ${Layout.center} ${Layout.hide}
+                <p className={`ml-3 -mt-0.5 break-normal
+                    max-lg:hidden lg:text-xs xl:text-base
+                    flex-grow ${Layout.center} ${Layout.hide}
                     ${id == index ? Colors.textActive : Colors.textInactive}
                 `}> {pages[id].name} </p>
 

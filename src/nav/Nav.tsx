@@ -32,7 +32,7 @@ export default function Nav({ index, pageRefs }: Props) {
 
             <header id='nav-head'
                 className={`h-[10%] pt-5 pb-2 text-center tracking-widest
-                lg:text-4xl md:text-3xl sm:text-2xl max-sm:hidden
+                lg:text-4xl md:text-3xl sm:text-2xl max-lg:hidden
                 flex-initial ${Layout.center} ${Layout.hide}`}
             > NAV </header>
 
