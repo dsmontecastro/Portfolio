@@ -1,2 +1,3 @@
 # TO-DO:
-- Make ProjectsList
+- Add Images to ProjectList
+- Add Previews' ImageBG + Buttons
