@@ -1,10 +1,10 @@
 import React from 'react';
 
 export type Project = {
-    'name': String
-    'image': string | undefined
+    'name': string
+    'image': string
+    "linkCode": string
     "linkProj": string | undefined
-    "linkCode": string | undefined
     'desc': string[]
 }
 

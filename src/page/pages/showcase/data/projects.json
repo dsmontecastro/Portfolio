@@ -3,23 +3,24 @@
         {
             "name": "Portfolio",
             "image": "/portfolio.png",
-            "linkProj": "",
             "linkCode": "https://github.com/dsmontecastro/Portfolio",
+            "linkProj": "https://dsmontecastro.github.io/Portfolio/",
             "desc": [
                 "THIS website was created using React, Vite, TypeScript, and TailwindCSS.",
-                "As a challenge, it makes use of as little a number of external packages and images.",
-                "Other than EmailJS & Custom Scrollbars, it makes the most out of pure React.",
-                "The code structure makes it very scalable, maximizing the maintainability of the project",
-                "while minimizing the number of files to be modified whenever changes occur."
+                "As a challenge, it makes use of as little a number of external packages and images;",
+                "other than EmailJS & QoL modules, it makes the most out of pure React.",
+                "The code structure is based on the idea of scalability,",
+                "maximizing the maintainability of the project",
+                "while minimizing the amount of changes to be made to files during updates."
             ]
         },
         {
             "name": "Sungka Online",
             "image": "/sungka.png",
-            "linkProj": "",
             "linkCode": "https://github.com/dsmontecastro/Sungka",
+            "linkProj": null,
             "desc": [
-                "BEING my first React project, I had to learn as  I code, and learn I did.",
+                "Being my first React project, I had to learn as  I code, and learn I did.",
                 "This application uses Typescript and Sockets.io to operate rooms and matches for Sungka.",
                 "Code for both the front (server) and back (client) ends can be found in the repostory.",
                 "Since this entire idea initially came from a chat app, I also added chat features, because why not?",
@@ -32,37 +33,58 @@
         {
             "name": "Word-Game",
             "image": "/wordgame.png",
-            "linkProj": "",
             "linkCode": "https://github.com/dsmontecastro/Word-Game",
+            "linkProj": null,
             "desc": [
-                ""
+                "A Wordle-esque game before Wordle peaked in popularity, made using Python & PyGame.",
+                "It was made in around 1 month as a group project during our 1st semester as freshmen (2018).",
+                "This was mostly an exploratory assesment, giving us free reign to make any creative application.",
+                "The assets & majority of the game logic were handled by the other 2 members,",
+                "with most of my duties revolving around the UI/UX systems, specifically the GUI & player controls."
             ]
         },
         {
             "name": "PythonDex",
             "image": "/pythondex.png",
-            "linkProj": "",
             "linkCode": "https://github.com/dsmontecastro/PythonDex",
+            "linkProj": null,
             "desc": [
-                ""
+                "A prototype PokeDex application made primarily via Python's Pyglet module.",
+                "It was made in around 1 month as a group project during our 1st semester as freshmen (2018).",
+                "This was another \"free\" project, allowing us to develop whatever idea came to mind.",
+                "My role for this project was implementing the GUI,",
+                "including the custom scrollbar and OpenGL-based radar-chart for the stats."
             ]
         },
         {
             "name": "Air Quality Analysis",
             "image": "/air_quality.png",
-            "linkProj": "",
             "linkCode": "https://github.com/dsmontecastro/Air-Quality-Analysis",
+            "linkProj": null,
             "desc": [
-                ""
+                "A data analysis on the relation between Gas Composition & Temperature in a natural setting.",
+                "The objective was to sort out a correlation between the two with minimal influence by other meteorological elements.",
+                "which aims to see if atmospheric changes can be introduced in the face of a lack of more conventional",
+                "means of environmental manipulation such as through irrigation and climate control-systems.",
+                "Using different arrangements of features in the form of chemical groupings,",
+                "the field's gas composition was compared to temperature in both Categorical and Continuous measurements.",
+                "This was done through a Multi-Variate Neural Network created via Python's SciKit-Learn module."
             ]
         },
         {
             "name": "Flood Risk Analysis",
             "image": "/flood_risk.png",
-            "linkProj": "",
             "linkCode": "https://github.com/dsmontecastro/Flood-Risk-Analysis",
+            "linkProj": null,
             "desc": [
-                ""
+                "A data analysis on the Flood Risk levels of the different regions of the country.",
+                "This was done through a collection of different features from various sources,",
+                "processed through supervised learning via the K-Nearest Neighbors (KNN) algorithm.",
+                "The challenge in this projects was the gathering of complementary geographical information,",
+                "such as average elevation, lake area, shoreline measurements,",
+                "which were not easily obtainable or accessible at the time of research.",
+                "My primary role in this project was the collection of said missing data,",
+                "as well as the writing of the report along with the translation of the results to a poster format."
             ]
         }
     ],
@@ -70,19 +92,32 @@
         {
             "name": "Thesis Project",
             "image": "/thesis.png",
-            "linkProj": "",
             "linkCode": "https://github.com/dsmontecastro/Thesis",
+            "linkProj": null,
             "desc": [
-                ""
+                "The research topic is titled \"The Effects of Active Listening in a Virtual Classroom\".",
+                "This is a qualitative study that uses focused-group discussions (FGDs)",
+                "among pairs teachers and students from different levels of higher education.",
+                "These talks were held in a custom virtual classroom with virtual avatars to simulate a \"physical\" setting.",
+                "Said learning space was built using the Godot Engine (3.5) with GodotSteam to handle multiplayer protocols.",
+                "The avatars simulated simple student expressions via the head position & facial expression",
+                "as well as hand and body gestures to simulate physical behaviors.",
+                "The discussions emphasized the importance of said physical cues in student-teacher interactions,",
+                "which are obivously missing in virtual classrooms that were held in online meeting rooms prevalent during the pandemic."
             ]
         },
         {
             "name": "Games of the Generals",
             "image": "/gog.png",
-            "linkProj": "",
             "linkCode": "https://github.com/dsmontecastro/GoG",
+            "linkProj": null,
             "desc": [
-                ""
+                "A virtual, multiplayer simulation of the local PH game, Games of the Generals.",
+                "It uses the Godot Engine (3.5) for the game proper along with the GodotSteam module.",
+                "Through the Steam Lobby system, it essentially runs serverless,",
+                "utilizing Steam's matchmaking and peer-to-peer (P2P) protocols for passing data.",
+                "While the room, matchmaking, and game logic are all functional,",
+                "the design, assets, and debugging require more work."
             ]
         }
     ],
@@ -90,15 +125,15 @@
         {
             "name": "Dexy",
             "image": "/dexy.png",
-            "linkProj": "",
             "linkCode": "https://github.com/dsmontecastro/Dexy",
+            "linkProj": null,
             "desc": [
-                "A PokeDex app made in Flutter/Dart, for Desktop and Mobile,based on an old college prototype",
-                "It accesses resources from PokeAPI, and stores most data via SQFLite.",
-                "As for the sprites, they are saved locally in the assets folder,",
-                "with some manual modifications to minimize file sizes.",
-                "This is still in development, with only the major features working.",
-                "Updates would implement more screens for displaying Pokemon data,",
+                "A PokeDex app made in Flutter/Dart, for Desktop & Mobile, based on the PythonDex prototype.",
+                "It uses resources from PokeAPI,",
+                "storing the necessary data to a local SQFLite database through custom-built wrappers.",
+                "The sprites were scraped through a different process, instead saved as static image assets.",
+                "This is still around half-way through development, having only the major features working.",
+                "Updates would implement the remaining screens for displaying more Pokemon data,",
                 "as well as allowing the user to access API & theme controls."
             ]
         }

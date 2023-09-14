@@ -25,13 +25,16 @@ export default function Previews({ id, refs, project }: Props) {
             <div className={`mx-3 items-start flex-1 ${Layout.fill} ${Layout.row} bg-slate-800 bg-opacity-30`}>
 
                 <div className={`h-full flex-[2] ${Layout.center}`}>
-                    <div className={`w-[90%] h-[90%] bg-black`} />
+                    <div className={`w-[90%] h-[90%] bg-slate-800 ${Layout.center}`}>
+                        x
+                    </div>
                 </div>
 
-                <div className={`pr-[2.5vw] py-[4vh] portrait:hidden
+                <div className={`pr-[2.5vw] py-[2.5%] portrait:hidden
                         max-md:hidden md:text-[0.5rem]/loose
                         lg:text-sm xl:text-lg 2xl:text-3xl
-                        text-justify flex-1 ${Layout.center}
+                        text-justify overflow-y-auto
+                        flex-1 ${Layout.center}
                 `}>  {project.desc.join(' ')} </div>
 
             </div>
