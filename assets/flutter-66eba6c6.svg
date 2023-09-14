@@ -1,0 +1,8 @@
+<svg viewBox="0% 0% 25.84 32"
+    width="256" height="317"
+    preserveAspectRatio="xMidYMid"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:v="https://vecta.io/nano"
+>
+
+<defs><linearGradient x1="3.9517088%" y1="26.9930287%" x2="75.8970734%" y2="52.9192657%" id="A"><stop offset="0%"/><stop stop-opacity="0" offset="100%"/></linearGradient></defs><path d="M157.666.001L.001 157.666l48.8 48.8L255.268.001zm-1.099 145.396l-84.418 84.418 48.984 49.716 48.71-48.71 85.425-85.424z" fill="#47c5fb"/><path fill="#00569e" d="M121.133 279.531l37.082 37.082h97.053l-85.425-85.792z"/><path fill="#00b5f8" d="M71.6 230.364l48.802-48.802 49.441 49.259-48.709 48.71z"/><path fill-opacity=".8" fill="url(#A)" d="M121.133 279.531l40.56-13.459 4.029-31.131z"/></svg>
