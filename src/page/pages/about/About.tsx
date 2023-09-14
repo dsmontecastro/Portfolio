@@ -60,8 +60,9 @@ export default function About() {
                     3xs:text-xs 2xs:text-xs xs:text-base sm:text- md:text-md lg:text-lg xl:text-xl 2xl:text-2xl
                     text-justify portrait:text-center overflow-y-scroll flex-shrink bg-slate-900`}
                 >   Coming from a Computer Science background, I am skilled in all manners of tasks,
-                    from front-end to back, UI/UX to data, from mobile to desktop. My interests lie
-                    in the creation of actual software, applications, websites, and games for sale or use.
+                    from front-end to back, UI/UX to data science, from mobile to desktop. My interests lie
+                    in the creation of actual software, applications, websites, and games for deployment or
+                    consumer use.
                 </p>
 
             </div >
