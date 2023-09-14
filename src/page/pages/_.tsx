@@ -4,9 +4,9 @@ import Showcase from './showcase/Showcase';
 
 // Note: Keep Names short (< 10 char) for NAV
 export const pages = [
-    { name: About.name, body: <About /> },
-    { name: Showcase.name, body: <Showcase /> },
-    { name: Contact.name, body: <Contact /> },
+    { name: "About", body: <About /> },
+    { name: "Projects", body: <Showcase /> },
+    { name: "Contact", body: <Contact /> },
 ]
 
 export const pageCount = pages.length;
