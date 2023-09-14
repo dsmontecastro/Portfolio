@@ -25,5 +25,4 @@ dist-ssr
 
 # Custom
 vite-env.d.ts
-
 *.local

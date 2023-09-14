@@ -4,12 +4,12 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:react-hooks/recommended',
-    // 'plugin:@typescript-eslint/recommended',
+    'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-type-checked'
   ],
-  ignorePatterns: ['dist', '.eslintrc.cjs'],
+  ignorePatterns: ['dist', '.eslintrc.cjs', '*.config.js', '*.config.ts'],
   parser: '@typescript-eslint/parser',
-  plugins: ['react-refresh'],
+  plugins: ['react-refresh', '@typescript-eslint'],
   rules: {
     "space-in-parens": ["error", "never"],
     "object-curly-spacing": ["error", "always"],
@@ -18,5 +18,9 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
+  },
+  parserOptions: {
+    parser: "@typescript-eslint/parser",
+    project: "./tsconfig.json",
   },
 }
