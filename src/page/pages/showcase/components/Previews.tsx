@@ -1,3 +1,5 @@
+import { Textfit } from 'react-textfit';
+
 import { Layout } from '../../../Styles';
 import { Project, PreviewRef } from '../data/_types';
 
@@ -11,6 +13,10 @@ export default function Previews({ id, refs, project }: Props) {
 
     const key = `projects-${id}`;
 
+    function label(name: string) {
+        return `${key}-${name}`;
+    }
+
 
     return (
 
@@ -18,24 +24,25 @@ export default function Previews({ id, refs, project }: Props) {
             className={`flex-shrink-0 ${Layout.colC} ${Layout.fill}`}
         >
 
-            <div className={`m-3 flex-none
-                max-lg:text-lg lg:text-2xl
+            <div id={label('title')} className={`m-3 flex-none max-lg:text-lg lg:text-2xl
             `}> {project.name} </div>
 
-            <div className={`mx-3 items-start flex-1 ${Layout.fill} ${Layout.row} bg-slate-800 bg-opacity-30`}>
+            <div className={`px-[3vw] py-[5vh] items-start flex-1 ${Layout.fill} ${Layout.row} bg-slate-600 bg-opacity-30`}>
 
-                <div className={`h-full flex-[2] ${Layout.center}`}>
-                    <div className={`w-[90%] h-[90%] bg-slate-800 ${Layout.center}`}>
+                <div id={label('left')} className={`h-full flex-[2] bg-slate-700 ${Layout.center}`}>
+                    <div className={`w-[90%] h-[90%] ${Layout.center}`}>
                         x
                     </div>
                 </div>
 
-                <div className={`pr-[2.5vw] py-[2.5%] portrait:hidden
-                        max-md:hidden md:text-[0.5rem]/loose
-                        lg:text-sm xl:text-lg 2xl:text-3xl
-                        text-justify overflow-y-auto
+                <div className={`w-[3vw]`} />
+
+                <Textfit id={label('desc')} forceSingleModeWidth={true}
+                    className={`h-full p-[2vw]
+                        portrait:hidden max-sm:hidden
+                        text-justify bg-slate-900
                         flex-1 ${Layout.center}
-                `}>  {project.desc.join(' ')} </div>
+                `}>  {project.desc.join(' ')} </Textfit>
 
             </div>
 
