@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { AiFillCaretLeft, AiFillCaretRight } from 'react-icons/ai';
 import Scrollbars, { positionValues } from 'react-custom-scrollbars-2';
 
@@ -58,6 +58,9 @@ export default function Skill({ index }: Props) {
 
     const projects: Project[] = projectList[logoNames[index]];
     const count = projects.length;
+
+    // Return to 1st ID on Index change
+    useEffect(() => scrollTo(0), [index]);
 
     function makePreviews(id: number, project: Project) {
 
