@@ -59,12 +59,13 @@ export default function Contact() {
         return `${min}:${sec}`;
     }
 
-    function countdown() {
-        if (timer > 0) setTimer(timer - 1);
-        else enableSend();
-    }
-
     useEffect(() => {
+
+        function countdown() {
+            if (timer > 0) setTimer(timer - 1);
+            else enableSend();
+        }
+
         const interval = setInterval(countdown, 1000);
         return () => clearInterval(interval);
     }, [timer]);
@@ -79,7 +80,7 @@ export default function Contact() {
     useEffect(() => {
         window.addEventListener("beforeunload", saveStates);
         return () => window.removeEventListener("beforeunload", saveStates);
-    }, []);
+    });
 
     /* ---------------------------- Control & Access of Form Inputs via Data State ---------------------------- */
 
@@ -123,12 +124,12 @@ export default function Contact() {
 
             else {
                 emailjs.sendForm(
-                    import.meta.env.VITE_SID,
-                    import.meta.env.VITE_FORM,
+                    import.meta.env.VITE_SID as string,
+                    import.meta.env.VITE_FORM as string,
                     e.currentTarget,
-                    import.meta.env.VITE_KEY)
+                    import.meta.env.VITE_KEY as string)
                     .then(
-                        (_) => disableSend(),
+                        () => disableSend(),
                         (error) => console.log('FAILED...', error)
                     );
             }
