@@ -1,6 +1,6 @@
 import { Textfit } from 'react-textfit';
 
-import { Layout } from '../../../Styles';
+import { Colors, Layout } from '../../../Styles';
 import { Project, PreviewRef } from '../data/_types';
 
 interface Props {
@@ -30,8 +30,24 @@ export default function Previews({ id, refs, project }: Props) {
             <div className={`px-[3vw] py-[5vh] items-start flex-1 ${Layout.fill} ${Layout.row} bg-slate-600 bg-opacity-30`}>
 
                 <div id={label('left')} className={`h-full flex-[2] bg-slate-700 ${Layout.center}`}>
-                    <div className={`w-[90%] h-[90%] ${Layout.center}`}>
-                        x
+                    <div className={`w-[90%] h-[90%] ${Layout.colC}`}>
+
+                        <img id={label('image')} src={project.image} className={`w-full h-[90%] mb-[2.5%] ${Layout.rowC}`} />
+
+                        <div id={label('buttons')} className={`w-full h-[10%] ${Layout.rowC}`}>
+
+                            <a href={project.linkCode} className={`w-[40%] h-[90%] ${Layout.center} ${Colors.bgMain}`}>
+                                Code
+                            </a>
+
+                            {project.linkProj &&
+                                <a href={project.linkCode} className={`w-[40%] h-[90%] ml-[10%] ${Layout.center} ${Colors.bgMain}`}>
+                                    Demo
+                                </a>
+                            }
+
+                        </div>
+
                     </div>
                 </div>
 

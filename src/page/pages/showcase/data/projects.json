@@ -18,7 +18,7 @@
             "name": "Sungka Online",
             "image": "/sungka.png",
             "linkCode": "https://github.com/dsmontecastro/Sungka",
-            "linkProj": null,
+            "linkProj": "https://dsmontecastro.github.io/Sungka/",
             "desc": [
                 "Being my first React project, I had to learn as  I code, and learn I did.",
                 "This application uses Typescript and Sockets.io to operate rooms and matches for Sungka.",
@@ -32,7 +32,7 @@
     "python": [
         {
             "name": "Word-Game",
-            "image": "/wordgame.png",
+            "image": "/word_game.png",
             "linkCode": "https://github.com/dsmontecastro/Word-Game",
             "linkProj": null,
             "desc": [
@@ -55,43 +55,12 @@
                 "My role for this project was implementing the GUI,",
                 "including the custom scrollbar and OpenGL-based radar-chart for the stats."
             ]
-        },
-        {
-            "name": "Air Quality Analysis",
-            "image": "/air_quality.png",
-            "linkCode": "https://github.com/dsmontecastro/Air-Quality-Analysis",
-            "linkProj": null,
-            "desc": [
-                "A data analysis on the relation between Gas Composition & Temperature in a natural setting.",
-                "The objective was to sort out a correlation between the two with minimal influence by other meteorological elements.",
-                "which aims to see if atmospheric changes can be introduced in the face of a lack of more conventional",
-                "means of environmental manipulation such as through irrigation and climate control-systems.",
-                "Using different arrangements of features in the form of chemical groupings,",
-                "the field's gas composition was compared to temperature in both Categorical and Continuous measurements.",
-                "This was done through a Multi-Variate Neural Network created via Python's SciKit-Learn module."
-            ]
-        },
-        {
-            "name": "Flood Risk Analysis",
-            "image": "/flood_risk.png",
-            "linkCode": "https://github.com/dsmontecastro/Flood-Risk-Analysis",
-            "linkProj": null,
-            "desc": [
-                "A data analysis on the Flood Risk levels of the different regions of the country.",
-                "This was done through a collection of different features from various sources,",
-                "processed through supervised learning via the K-Nearest Neighbors (KNN) algorithm.",
-                "The challenge in this projects was the gathering of complementary geographical information,",
-                "such as average elevation, lake area, shoreline measurements,",
-                "which were not easily obtainable or accessible at the time of research.",
-                "My primary role in this project was the collection of said missing data,",
-                "as well as the writing of the report along with the translation of the results to a poster format."
-            ]
         }
     ],
     "csharp": [
         {
             "name": "Thesis Project",
-            "image": "/thesis.png",
+            "image": "/thesis.jpg",
             "linkCode": "https://github.com/dsmontecastro/Thesis",
             "linkProj": null,
             "desc": [
