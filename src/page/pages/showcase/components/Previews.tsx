@@ -9,6 +9,8 @@ interface Props {
     project: Project
 }
 
+const path = import.meta.env.BASE_URL;
+
 export default function Previews({ id, refs, project }: Props) {
 
     const key = `projects-${id}`;
@@ -32,7 +34,8 @@ export default function Previews({ id, refs, project }: Props) {
                 <div id={label('left')} className={`h-full flex-[2] bg-slate-700 ${Layout.center}`}>
                     <div className={`w-[90%] h-[90%] ${Layout.colC}`}>
 
-                        <img id={label('image')} src={project.image} className={`w-full h-[90%] mb-[2.5%] ${Layout.rowC}`} />
+                        <img id={label('image')} src={path + project.image} alt={project.name}
+                            className={`w-full h-[90%] mb-[2.5%] ${Layout.rowC}`} />
 
                         <div id={label('buttons')} className={`w-full h-[10%] ${Layout.rowC}`}>
 
