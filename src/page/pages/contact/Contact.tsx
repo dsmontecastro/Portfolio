@@ -3,7 +3,6 @@ import emailjs from 'emailjs-com';
 
 import { Colors, Layout } from "../../Styles";
 import Wheel from "../../../assets/wheel/Wheel";
-// import LinkedIn from '../../../assets/logos/linkedin.svg';
 
 import * as CONST from './_constants';
 import * as TYPE from './_types';
@@ -13,7 +12,7 @@ import Field from './Field';
 export default function Contact() {
 
     const name = 'contact';
-    const linkedin = 'https://www.linkedin.com/in/daniel-montecastro-83b88a234/';
+    const linkedin = 'https://www.linkedin.com/in/daniel-montecastro/';
 
     function label(id: string) {
         return `${name}-${id}`;
