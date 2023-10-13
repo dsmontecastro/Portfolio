@@ -25,4 +25,3 @@ dist-ssr
 
 # Custom
 .env
-vite-env.d.ts
