@@ -17,8 +17,8 @@
         {
             "name": "Sungka Online",
             "image": "/sungka.png",
-            "linkCode": "https://github.com/dsmontecastro/Sungka",
-            "linkProj": "https://dsmontecastro.github.io/Sungka/",
+            "linkCode": "https://github.com/dsmontecastro/Sungka-Online/",
+            "linkProj": "https://dsmontecastro.github.io/Sungka-Online/",
             "desc": [
                 "My introduction to both React and the Full-Stack environment.",
                 "This application uses Typescript and Sockets.io to operate rooms and matches for Sungka.",

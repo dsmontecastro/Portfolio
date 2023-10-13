@@ -44,7 +44,7 @@ export default function Previews({ id, refs, project }: Props) {
                             </a>
 
                             {project.linkProj &&
-                                <a href={project.linkCode} className={`w-[40%] h-[90%] ml-[10%] ${Layout.center} ${Colors.bgMain}`}>
+                                <a href={project.linkProj} className={`w-[40%] h-[90%] ml-[10%] ${Layout.center} ${Colors.bgMain}`}>
                                     Demo
                                 </a>
                             }
