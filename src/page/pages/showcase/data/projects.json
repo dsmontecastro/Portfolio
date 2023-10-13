@@ -7,9 +7,9 @@
             "linkProj": "https://dsmontecastro.github.io/Portfolio/",
             "desc": [
                 "THIS website was created using React, Vite, TypeScript, and TailwindCSS.",
-                "As a challenge, it makes use of as little a number of external packages and images;",
+                "As a challenge, it makes use of as few external packages and images;",
                 "other than EmailJS & QoL modules, it makes the most out of pure React.",
-                "The code structure is based on the idea of scalability,",
+                "The code structure emphasized scalability,",
                 "maximizing the maintainability of the project",
                 "while minimizing the amount of changes to be made to files during updates."
             ]
@@ -20,12 +20,11 @@
             "linkCode": "https://github.com/dsmontecastro/Sungka",
             "linkProj": "https://dsmontecastro.github.io/Sungka/",
             "desc": [
-                "Being my first React project, I had to learn as  I code, and learn I did.",
+                "My introduction to both React and the Full-Stack environment.",
                 "This application uses Typescript and Sockets.io to operate rooms and matches for Sungka.",
-                "Code for both the front (server) and back (client) ends can be found in the repostory.",
-                "Since this entire idea initially came from a chat app, I also added chat features, because why not?",
-                "Still, having been my very first attempt, there are still optimizations to be made;",
-                "improvements to the the file and CSS layouts are the first priorities if I ever choose to revisit this."
+                "Code for both the front (server) and back (client) ends can be found in the repository.",
+                "Since this entire idea initially came from a chat app, said feature was also implemented.",
+                "Future improvements to be made generally lie in the CSS and layout configuration."
             ]
         }
     ],
@@ -38,7 +37,7 @@
             "desc": [
                 "A Wordle-esque game before Wordle peaked in popularity, made using Python & PyGame.",
                 "It was made in around 1 month as a group project during our 1st semester as freshmen (2018).",
-                "This was mostly an exploratory assesment, giving us free reign to make any creative application.",
+                "This was mostly an exploratory assessment, giving us free reign to make any creative application.",
                 "The assets & majority of the game logic were handled by the other 2 members,",
                 "with most of my duties revolving around the UI/UX systems, specifically the GUI & player controls."
             ]
@@ -72,7 +71,7 @@
                 "The avatars simulated simple student expressions via the head position & facial expression",
                 "as well as hand and body gestures to simulate physical behaviors.",
                 "The discussions emphasized the importance of said physical cues in student-teacher interactions,",
-                "which are obivously missing in virtual classrooms that were held in online meeting rooms prevalent during the pandemic."
+                "which are obviously missing in virtual classrooms that were held in online meeting rooms prevalent during the pandemic."
             ]
         },
         {
