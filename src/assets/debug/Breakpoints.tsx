@@ -1,6 +1,8 @@
+const dev = import.meta.env.DEV;
+
 export default function BreakPoints() {
 
-    return (
+    if (dev) return (
 
         <div className="m-2 p-2 fixed bottom-0 right-0
                          rounded flex items-center text-pink-600

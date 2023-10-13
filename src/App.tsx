@@ -13,7 +13,7 @@ export default function App() {
     <>
       <Nav index={index} pageRefs={pageRefs} />
       <Pages pageRefs={pageRefs} setIndex={setIndex} />
-      {import.meta.env.DEV && <BreakPoints />}
+      <BreakPoints />
     </>
   );
 
