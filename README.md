@@ -1,7 +1,7 @@
 # Portfolio Website
 Link: [https://dsmontecastro.github.io/Portfolio/](https://dsmontecastro.github.io/Portfolio/)
 
-A personal project portfolio website, written through __React, Typescript,__ and __Tailwind CSS__, packaged via _Vite_.
+A personal project portfolio website, written through __React, Typescript,__ and __Tailwind CSS__, managed by _Vite_.
 
 #### Other Dependencies:
 * EmailJS (3.2.0)
