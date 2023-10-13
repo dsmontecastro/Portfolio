@@ -11,48 +11,34 @@ interface Props {
 
 export default function Nav({ index, pageRefs }: Props) {
 
-    const last = pageCount - 1;
-
     function makeNavItem(id: number) {
 
         const key = 'n-' + id;
-        const isLast = id == last;
 
         return <NavItem key={key}
             id={id}
             index={index}
             refs={pageRefs}
-            last={isLast}
         />
     }
 
     return (
 
-        <div id='nav' className={`w-min h-full bg-black bg-opacity-90 ${Layout.col}`}>
+        <div id='nav' className={`w-[10%] h-full bg-black bg-opacity-90 flex-col ${Layout.center}`}>
 
             <header id='nav-head'
-                className={`h-[10%] pt-5 pb-2 text-center tracking-widest
+                className={`w-full h-[10%] mb-[5%] pt-5 pb-2 text-center tracking-widest
                 lg:text-4xl md:text-3xl sm:text-2xl max-lg:hidden
                 flex-initial ${Layout.center} ${Layout.hide}`}
             > NAV </header>
 
-            <div id='nav-body'
-                className={`
-                w-full mx-2 my-5 pr-4
-                2xl:mx-0 2xl:my-12 2xl:pr-8
-                flex-1 ${Layout.row}`}
-            >
+            <div id='nav-items' className={`w-[90%] h-[90%] mx-auto my-[5%] relative justify-between ${Layout.colC}`}>
 
-                <div id='nav-line'
-                    className={`
-                    w-4 my-2 z-80 translate-x-6
-                    2xl:w-7 2xl:my-10 2xl:translate-x-11
-                    flex-initial ${Colors.bg}`}
-                />
+                {Array(pageCount).fill(null).map((_, i) => makeNavItem(i))}
 
-                <div id='nav-items' className={`h-full -ml-0.5 flex-1 ${Layout.col}`}>
-                    {Array(pageCount).fill(null).map((_, i) => makeNavItem(i))}
-                </div>
+                <svg className={`my-[5%] absolute z-0 ${Layout.fill} ${Colors.stroke}`}>
+                    <line x1='50%' y1='0%' x2='50%' y2='100%' className='stroke-[1vw]' />
+                </svg>
 
             </div>
 
