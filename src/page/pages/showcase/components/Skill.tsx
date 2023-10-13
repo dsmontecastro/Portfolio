@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { AiFillCaretLeft, AiFillCaretRight } from 'react-icons/ai';
 import Scrollbars, { positionValues } from 'react-custom-scrollbars-2';
 
@@ -24,43 +24,12 @@ export default function Skill({ index }: Props) {
         return `${name}-${id}`;
     }
 
-    /* ----------------------- Controls ID State corresponding to current Preview Shown ----------------------- */
-
-    const [id, setID] = useState<number>(0);
-
-    const previewRefs = useRef<(HTMLElement | null)[]>([]);
-
-    const next = () => step(1);
-    const prev = () => step(-1);
-
-    function step(step: Step) {
-        const _id = id + step;
-        if (_id >= 0 && _id < count) {
-            const preview = previewRefs.current[_id];
-            preview?.scrollIntoView(scrollOptions);
-        }
-    }
-
-    function scrollTo(i: number) {
-        const preview = previewRefs.current[i];
-        preview?.scrollIntoView(scrollOptions);
-    }
-
-    function onScroll(values: positionValues) {
-        const per = values.left;
-        const pos = (count - 1) * per;
-        setID(Math.round(pos));
-    }
-
     /* -------------------------------- Change Project Previews based on Index -------------------------------- */
 
     const projectList = JSON.parse(JSON.stringify(Projects)) as ProjectList;
 
     const projects: Project[] = projectList[logoNames[index]];
     const count = projects.length;
-
-    // Return to 1st ID on Index change
-    useEffect(() => scrollTo(0), [index]);
 
     function makePreviews(id: number, project: Project) {
 
@@ -73,6 +42,34 @@ export default function Skill({ index }: Props) {
         />;
 
     }
+
+    /* ----------------------- Controls ID State corresponding to current Preview Shown ----------------------- */
+
+    const [id, setID] = useState<number>(0);
+
+    const previewRefs = useRef<(HTMLElement | null)[]>([]);
+
+    const next = () => step(1);
+    const prev = () => step(-1);
+
+    function step(step: Step) {
+        const _id = id + step;
+        scrollTo(_id);
+    }
+
+    function scrollTo(i: number) {
+        if (i >= 0 && i < count) {
+            const preview = previewRefs.current[i];
+            preview?.scrollIntoView(scrollOptions);
+        }
+    }
+
+    function onScroll(values: positionValues) {
+        const per = values.left;
+        const pos = (count - 1) * per;
+        setID(Math.round(pos));
+    }
+
 
     return (
 
@@ -88,7 +85,9 @@ export default function Skill({ index }: Props) {
 
                 <Scrollbars onUpdate={onScroll}
                     renderView={props => <div {...props} className={Layout.previewScroller} />}
-                > {projects.map((project, id) => makePreviews(id, project))} </Scrollbars >
+                >
+                    {projects.map((project, id) => makePreviews(id, project))}
+                </Scrollbars >
 
                 <button onClick={next}
                     className={`h-full ml-5
